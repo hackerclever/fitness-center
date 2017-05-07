@@ -1,61 +1,73 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{{ url('/') }}">Home</a>
-    </div>
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Fitness</a>
 
-
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <!-- <li><a href="{{ url('/singers') }}">Singers</a></li> -->
-
-
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
 
         @if (Route::has('login'))
             @if (Auth::check())
-                <li><a href="{{ url('/customer') }}">Customer</a></li>
-                <li><a href="{{ url('/customer/book') }}">Booking Trainer</a></li>
-                <li><a href="{{ url('/customer/table') }}">All Customer</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/register/create') }}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/customer/table') }}">Customer List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/customer/checkin') }}">Checkin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/booking/create') }}">Booking</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/course/create') }}">Create Course</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/typeClass/create') }}">Create Class</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/promotion/create') }}">Promotion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/voucher/create') }}">Voucher</a>
+            </li>
             @endif
         @endif
-     </ul>
-     <ul class="nav navbar-nav navbar-right top-right">
-         @if (Route::has('login'))
-             @if (Auth::check())
-             <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                     {{ Auth::user()->name }} <span class="caret"></span>
-                 </a>
+    </ul>
 
-                 <ul class="dropdown-menu" role="menu">
-                     <li>
-                         <a href="{{ route('logout') }}"
-                             onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
-                             Logout
-                         </a>
 
-                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                             {{ csrf_field() }}
-                         </form>
-                     </li>
-                 </ul>
-             </li>
-             @else
-                 <li><a href="{{ url('/login') }}">Login</a></li>
-                 <li><a href="{{ url('/register') }}">Register</a></li>
-             @endif
-        @endif
-     </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+      @if (Route::has('login'))
+          @if (Auth::check())
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               {{ Auth::user()->name }} <span class="caret"></span>
+             </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                   Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  {{ csrf_field() }}
+                </form>
+             </div>
+           </li>
+        </ul>
+
+          @else
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/register') }}">Register</a>
+            </li>
+          </ul>
+          @endif
+     @endif
+
+  </div>
 </nav>
