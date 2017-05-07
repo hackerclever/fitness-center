@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::resource('customers', 'Api\CustomersController');
 Route::resource('typeclass', 'Api\TypeClassController');
+Route::resource('courses', 'Api\CourseController');
 Route::resource('vouchers', 'Api\VoucherController');
 // Route::get('singers/{id}/albums', 'Api\SingersController@albums');
 // Route::resource('singers', 'Api\SingersController');

@@ -39,6 +39,8 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
+      $used = $request->used;
+      return $used;
       // $typeClass = new \App\TypeClass;
       // $typeClass->name = trim($request->name);
       // $typeClass->price = trim($request->price);

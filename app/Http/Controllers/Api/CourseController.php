@@ -14,7 +14,11 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+      $courses = \App\Course::all();
+      return [
+          'success' => true,
+          'data' => $courses
+      ];
     }
 
     /**
