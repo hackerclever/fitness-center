@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TypeUser extends Model
 {
-    protected $fillable = ['role'];
+    protected $fillable = ['id', 'role'];
 
     public function user()
     {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CustomersController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class CustomersController extends Controller
      */
     public function index()
     {
-      $customers = \App\Customer::all();
-      return [
-          'success' => true,
-          'data' => $customers
-      ];
+        //
     }
 
     /**
@@ -39,22 +35,7 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-      // $typeClass = new \App\TypeClass;
-      // $typeClass->name = trim($request->name);
-      // $typeClass->price = trim($request->price);
-      // $typeClass->description = trim($request->description);
-      // if (!empty($typeClass->name) && !empty($typeClass->price) && !empty($typeClass->description) && $typeClass->save()){
-      //     return [
-      //         'success' => true,
-      //         'data' => "typeClass '{$typeClass->name}' was saved with id: {$typeClass->id}",
-      //         'id' => $typeClass->id
-      //     ];
-      // } else {
-      //     return [
-      //         'success' => false,
-      //         'data' => "Some error occurred"
-      //     ];
-      // }
+        //
     }
 
     /**
