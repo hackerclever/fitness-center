@@ -17,7 +17,7 @@ class CreateVouchersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->double('price');
-            $table->string('key',8);
+            $table->string('key',32)->default('');
             $table->boolean('active')->default(true);
             $table->date('startTime')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->date('endTime');
