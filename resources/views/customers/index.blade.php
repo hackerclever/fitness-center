@@ -4,10 +4,18 @@
 <div class="container" id = 'vue-app-customers'>
 <div class="info">
   <form class="info-form">
-      <input type="text" name="customerName" v-model = 'nameC'>
-      <button type="button" name="button" v-on:click = 'checkCustomer()'>check </button>
-      <button type="button" name="button" v-on:click = 'clearCustomer()'>clear </button>
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">Search Customer</div>
+
+          <div class="panel-body">
+            <input type="text" name="customerName" v-model = 'nameC'>
+            <button type="button" name="button" v-on:click = 'checkCustomer()'>check </button>
+            <button type="button" name="button" v-on:click = 'clearCustomer()'>clear </button>
+          </div>
   </form>
+</div>
+</div>
 </div>
 
 <div class="no-information" v-if = '!isFound'>
@@ -15,11 +23,18 @@
 </div>
 
 <div class="information" v-if = 'isFound'>
+  <br><br><br><br><br><br>
+  <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-body">
   <img src="images/ex.jpg" width="150" height="150">
   <h1>Name Cutomer in Database</h1>
   <p>ID Customer : </p>
-  <p>name : </p>
+  <p>Type of customer : </p>
   <p>Tel. : </p>
+</div>
+</div>
+</div>
 </div>
 </div>
 @endsection
@@ -31,7 +46,7 @@ var vm = new Vue({
     el: '#vue-app-customers',
     data : {
       'isFound' : false,
-      'nameC' : ''
+      'nameC' : '',
     },
 
 
@@ -39,6 +54,7 @@ var vm = new Vue({
     {
       checkCustomer : function(){
         console.log(this.nameC);
+
         if(this.nameC == '123'){
           this.isFound = true;
         }else{

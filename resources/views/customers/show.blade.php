@@ -17,12 +17,12 @@
             </thead>
             <tbody>
                 <tr v-for="d in data">
-                    <!-- <td>@{{ d.id }}</td>
-                    <td>@{{ d.name }}</td> -->
+                    <td>@{{ d.id }}</td>
+                    <td>@{{ d.name }}</td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <!-- <td></td>
+                    <td></td> -->
                 </tr>
             </tbody>
         </table>
@@ -33,6 +33,7 @@
 
 @section('script')
 <script>
+var data = <?php echo $resBody; ?>;
 var vm = new Vue({
     el: '#vue-app-customers',
     data: data
