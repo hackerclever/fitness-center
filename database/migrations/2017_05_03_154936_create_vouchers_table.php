@@ -16,9 +16,12 @@ class CreateVouchersTable extends Migration
         Schema::create('vouchers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->double('price','5','2');
-            $table->date('startTime');
+            $table->double('price');
+            $table->string('key',8);
+            $table->boolean('active')->default(true);
+            $table->date('startTime')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->date('endTime');
+            $table->timestamps();
 
         });
     }

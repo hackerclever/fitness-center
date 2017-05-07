@@ -15,15 +15,15 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('type_classes_id')->unsigned();
-            $table->integer('users_id')->unsigned(); //Trainner
+            $table->integer('type_class_id')->unsigned();
+            $table->integer('user_id')->unsigned(); //Trainner
             $table->timestamps();
 
-            $table->foreign('users_id')
+            $table->foreign('user_id')
                   ->references('id')
                   ->on('users');
 
-            $table->foreign('type_classes_id')
+            $table->foreign('type_class_id')
                   ->references('id')
                   ->on('type_classes');
         });

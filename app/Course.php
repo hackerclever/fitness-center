@@ -11,9 +11,9 @@ class Course extends Model
         return $this->belongsTo('App\TypeClass');
     }
 
-    public function user()
+    public function user() //Trainner
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function timeCourse()

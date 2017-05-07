@@ -14,11 +14,12 @@ class CreateTimeCoursesTable extends Migration
     public function up()
     {
         Schema::create('time_courses', function (Blueprint $table) {
-            $table->integer('courses_id')->unsigned();
-            $table->dateTime('startTime');
+            $table->integer('course_id')->unsigned();
+            $table->dateTime('startTime')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('endTime');
+            $table->timestamps();
 
-            $table->foreign('courses_id')
+            $table->foreign('course_id')
                   ->references('id')
                   ->on('courses');
         });

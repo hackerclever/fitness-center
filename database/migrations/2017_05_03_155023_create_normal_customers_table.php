@@ -14,11 +14,13 @@ class CreateNormalCustomersTable extends Migration
     public function up()
     {
         Schema::create('normal_customers', function (Blueprint $table) {
-            $table->integer('customers_id')->unsigned();
-            $table->date('startTime');
+            $table->integer('customer_id')->unsigned();
+            $table->date('startTime')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->date('expire');
+            $table->timestamps();
 
-            $table->foreign('customers_id')
+
+            $table->foreign('customer_id')
                   ->references('id')
                   ->on('customers');
 
