@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     // protected $fillable = ['name','image'];
-    protected $visible = ['name', 'id'];
+    protected $visible = ['name', 'id', 'tel', 'img'];
 
 
     public function coursesCustomer()
