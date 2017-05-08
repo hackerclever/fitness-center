@@ -324,9 +324,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         App\Promotion::create([
-            'name' => '40',
+            'name' => 'New Year',
             'percent' => 20,
             'endTime' => '2017-05-07'
+        ]);
+        App\Promotion::create([
+            'name' => 'Love fitness',
+            'percent' => 15,
+            'endTime' => '2017-08-07'
         ]);
 
         $customer = App\Customer::where('name', '=' , 'Tor Thanapob')->first();

@@ -14,7 +14,6 @@
     <div class="card-block">
       <h4 class="card-title">Promotion name : {{$d->name}}</h4>
       <p class="card-text"> Percent : {{$d->percent}}</p>
-      <p class="card-text"> Percent : {{$d->percent}}</p>
     </div>
   </div>
 </div>
