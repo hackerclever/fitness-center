@@ -20,6 +20,7 @@ class CourseController extends Controller
             ->join('type_classes', 'courses.type_class_id', '=', 'type_classes.id')
             ->select('type_classes.id', 'courses.id', 'type_classes.name',
                      'type_classes.description', 'type_classes.price',
+                     'time_courses.day',
                      'time_courses.startTime',
                      'time_courses.endTime')
             ->get();
