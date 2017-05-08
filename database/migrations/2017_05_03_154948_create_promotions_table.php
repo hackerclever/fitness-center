@@ -17,8 +17,10 @@ class CreatePromotionsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('percent');
-            $table->date('startTime');
+            $table->boolean('active')->default(true);
+            $table->date('startTime')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->date('endTime');
+            $table->timestamps();
         });
     }
 

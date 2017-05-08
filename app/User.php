@@ -36,9 +36,13 @@ class User extends Authenticatable
         return $this->hasOne('App\Personality');
     }
 
-    public function booking()
+    public function couse()  //Trainner
     {
-        return $this->hasOne('App\Booking');
+        return $this->hasMany('App\Course');
     }
 
+    public function booking()
+    {
+        return $this->hasMany('App\Booking');
+    }
 }

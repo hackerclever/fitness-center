@@ -16,7 +16,8 @@ class CreateNormalPricesTable extends Migration
         Schema::create('normal_prices', function (Blueprint $table) {
             $table->increments('id');
             $table->string('month');
-            $table->double('price','5','2');
+            $table->double('price');
+            $table->timestamps();
         });
     }
 

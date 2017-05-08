@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    protected $fillable = ['name','image'];
-    protected $visible = ['name', 'id'];
-}
+    // protected $fillable = ['name','image'];
+    protected $visible = ['name', 'id', 'tel', 'img'];
+
 
     public function coursesCustomer()
     {
@@ -27,5 +27,6 @@ class Customer extends Model
 
     public function vipCustomer()
     {
-        return $this->hasOne('App\VIPCustomer');
+        return $this->hasOne('App\NormalCustomer');
     }
+}

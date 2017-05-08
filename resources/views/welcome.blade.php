@@ -3,30 +3,34 @@
 @section('content')
     <div class="jumbotron">
         <div class="container">
-            <h1 class="text-center">Fitness</h1>
+            <h1 class="text-center">Fitness Center</h1>
         </div>
     </div>
+<div class="section">
+  <div class="section-inner">
+    <h2>HIGHLIGHTS</h2>
+    <p>Looking for a fitness center in Thailand? You've come to the right place as our centers are equipped with advanced facilities that cater to all your needs and more. Join our fitness workout center in Singapore today and experience workouts like never before. The journey to a new, healthier you awaits.</p>
+    <p><strong>Reasons To Join Fitness Center</strong></p>
+    <p>Make every movement count. With just the right amount of training and motivation, we can help you reach your fitness goals. Fully furnished gyms and specially crafted exercise routines such as our Dynamic Movement Training will provide a constant challenge to better yourself.  </p>
+  </div>
 
+</div>
+<div class="row">
+  <h3>DYNAMIC MOVEMENT TRAINING (DMT)</h3>
+  <ul>
+    <li>DMT uses the body’s natural movement patterns through three-dimensional exercises.</li>
+    <li>Involve your whole body by challenging your cardiovascular, muscular and neural systems at the same time.</li>
+    <li>Movements can just use your body weight or be loaded for greater benefit.</li>
+    <li>The more dynamically you move, the better you’ll feel and perform.</li>
+    <li>Combine dynamic strength, fitness and functional training to exercise three times more effectively.</li>
+    <li>Improve muscular control, use more energy for accelerated weight loss and build performance in everyday life and sport.</li>
+    <li>Dynamic movement training is important to help you maintain a healthy body and healthy mind.</li>
+    <li>Whatever you want from a workout, make DMT part of your training programme for quicker and more effective results.</li>
+  </ul>
+</div>
     <div class="row">
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="https://unsplash.it/200?image=0" alt="Sample Image">
-        </a>
-      </div>
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="https://unsplash.it/200?image=1" alt="Sample Image">
-        </a>
-      </div>
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="https://unsplash.it/200?image=2" alt="Sample Image">
-        </a>
-      </div>
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="https://unsplash.it/200?image=3" alt="Sample Image">
-        </a>
-      </div>
+      <ul>
+        <li><a href="{{ url('/promotion/show') }}">Promotion</a></li>
+      </ul>
     </div>
 @endsection

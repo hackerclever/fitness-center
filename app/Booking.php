@@ -8,11 +8,11 @@ class Booking extends Model
 {
     public function customer()
     {
-        return $this->hasOne('App\Customer');
+        return $this->belongsTo('App\Customer');
     }
 
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 }

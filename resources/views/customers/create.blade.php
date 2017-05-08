@@ -1,9 +1,10 @@
 @extends('layouts.master')
 
-@section('content')
+<!-- @section('content')
 <div class="select-form" id = 'vue-add-trainer'>
 
     <form class='select-trainer' align = 'center'>
+      <h1>Booking Trainer</h1>
       <div class="field">
         <p class="control">
           <span class="select">
@@ -54,9 +55,9 @@ var vm = new Vue({
     methods:
     {
       addTrainer : function(){
-        //  code
+
       }
     }
 });
 </script>
-@endsection
+@endsection -->

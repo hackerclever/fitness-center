@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::resource('customers', 'Api\CustomersController');
+Route::resource('typeclass', 'Api\TypeClassController');
+Route::resource('courses', 'Api\CourseController');
+Route::resource('vouchers', 'Api\VoucherController');
+Route::resource('promotions', 'Api\PromotionController');
+Route::resource('trainers', 'Api\TrainerController');
+Route::resource('booking', 'Api\BookingController');
+// Route::get('singers/{id}/albums', 'Api\SingersController@albums');
+// Route::resource('singers', 'Api\SingersController');
+// Route::get('albums/{id}/songs', 'Api\AlbumsController@songs');
+// Route::resource('albums', 'Api\AlbumsController');

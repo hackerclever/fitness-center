@@ -14,14 +14,15 @@ class CreateCourseCustomersTable extends Migration
     public function up()
     {
         Schema::create('course_customers', function (Blueprint $table) {
-            $table->integer('customers_id')->unsigned();
-            $table->integer('courses_id')->unsigned();
+            $table->integer('customer_id')->unsigned();
+            $table->integer('course_id')->unsigned();
+            $table->timestamps();
 
-            $table->foreign('customers_id')
+            $table->foreign('customer_id')
                   ->references('id')
                   ->on('customers');
 
-            $table->foreign('courses_id')
+            $table->foreign('course_id')
                   ->references('id')
                   ->on('courses');
         });

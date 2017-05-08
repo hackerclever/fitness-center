@@ -16,7 +16,8 @@ class CreateVIPPricesTable extends Migration
         Schema::create('v_i_p_prices', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('count');
-            $table->string('price','5','2');
+            $table->double('price');
+            $table->timestamps();
         });
     }
 

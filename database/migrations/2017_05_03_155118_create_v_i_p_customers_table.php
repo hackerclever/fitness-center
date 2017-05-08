@@ -14,10 +14,11 @@ class CreateVIPCustomersTable extends Migration
     public function up()
     {
         Schema::create('v_i_p_customers', function (Blueprint $table) {
-            $table->integer('customers_id')->unsigned();
+            $table->integer('customer_id')->unsigned();
             $table->integer('count');
+            $table->timestamps();
 
-            $table->foreign('customers_id')
+            $table->foreign('customer_id')
                   ->references('id')
                   ->on('customers');
         });

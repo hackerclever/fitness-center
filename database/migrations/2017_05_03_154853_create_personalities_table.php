@@ -14,12 +14,13 @@ class CreatePersonalitiesTable extends Migration
     public function up()
     {
         Schema::create('personalities', function (Blueprint $table) {
-            $table->integer('users_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('name');
             $table->string('tel');
             $table->string('image');
+            $table->timestamps();
 
-            $table->foreign('users_id')
+            $table->foreign('user_id')
                   ->references('id')
                   ->on('users');
         });

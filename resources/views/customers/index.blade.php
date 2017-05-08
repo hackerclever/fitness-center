@@ -1,13 +1,29 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container" id = 'vue-app-customers'>
+
+<div class="container-fluid" id = 'vue-app-customers'>
+  <h1>Search Customer</h1>
 <div class="info">
   <form class="info-form">
-      <input type="text" name="customerName" v-model = 'nameC'>
-      <button type="button" name="button" v-on:click = 'checkCustomer()'>check </button>
-      <button type="button" name="button" v-on:click = 'clearCustomer()'>clear </button>
+    <!-- <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default"> -->
+          <!-- <div class="panel-heading">Search Customer</div> -->
+
+          <!-- <div class="panel-body"> -->
+            <!-- <input type="text" name="customerName" v-model = 'nameC'> -->
+            <input list="browsers" name="browser" v-model='name'>
+            <datalist id = "browsers">
+              @foreach ($data as $d)
+              <option value= "{{$d->name}}"> {{$d->id}} </option>
+              @endforeach
+            </datalist>
+            <button type="button" name="button" v-on:click = 'checkCustomer()'>check </button>
+            <button type="button" name="button" v-on:click = 'clearCustomer()'>clear </button>
+          <!-- </div> -->
   </form>
+<!-- </div>
+</div> -->
 </div>
 
 <div class="no-information" v-if = '!isFound'>
@@ -15,38 +31,58 @@
 </div>
 
 <div class="information" v-if = 'isFound'>
-  <img src="images/ex.jpg" width="150" height="150">
-  <h1>Name Cutomer in Database</h1>
-  <p>ID Customer : </p>
-  <p>name : </p>
-  <p>Tel. : </p>
+  <br><br>
+  <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-body">
+  <img src= '@{{img}}' width="150" height="150">
+  <h1>@{{nameGet}}</h1>
+  <p>Type of customer : </p>
+  <p>Tel. : @{{telGet}}</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 @endsection
 
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
+var data = <?php echo $resBody; ?>;
 var vm = new Vue({
     el: '#vue-app-customers',
     data : {
-      'isFound' : false,
-      'nameC' : ''
+      isFound : false,
+      name:'',
+      nameGet : '',
+      telGet:'',
+      img : ' ',
+      data
     },
 
 
     methods:
     {
       checkCustomer : function(){
-        console.log(this.nameC);
-        if(this.nameC == '123'){
-          this.isFound = true;
-        }else{
+        var a = 0;
+        for (var i = 0; i < this.data.data.length; i++) {
+          if(this.data.data[i].name == this.name){
+            this.nameGet = this.name;
+            this.telGet = this.data.data[i].tel;
+            this.img = this.data.data[i].img;
+            this.isFound = true;
+            // this.name = '';
+          }else{
+            a++;
+          }
+        }
+        if(a == this.data.data.length){
           alert("No Information");
+          this.name = '';
         }
       },
       clearCustomer: function(){
-        this.nameC = '';
+        this.name = '';
         this.isFound = false;
       }
     }

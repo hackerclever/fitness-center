@@ -18,6 +18,7 @@ class CreateCustomersTable extends Migration
             $table->string('name');
             $table->string('tel');
             $table->string('image');
+            $table->timestamps();
         });
     }
 

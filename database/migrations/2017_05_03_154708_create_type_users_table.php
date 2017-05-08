@@ -16,6 +16,7 @@ class CreateTypeUsersTable extends Migration
         Schema::create('type_users', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
             $table->string('role');
+            $table->timestamps();
 
             $table->foreign('user_id')
                   ->references('id')

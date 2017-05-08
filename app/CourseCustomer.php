@@ -10,4 +10,9 @@ class CourseCustomer extends Model
     {
         return $this->belongsTo('App\Customer');
     }
+
+    public function course()
+    {
+        return $this->belongsTo('App\Course');
+    }
 }
