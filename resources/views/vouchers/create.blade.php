@@ -23,12 +23,12 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Key :</label>
+            <label class="col-sm-2 col-form-label">Amount :</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" v-model='key'>
+                <input type="text" class="form-control" v-model='amount'>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" v-on:click="submit()">Submit</button>
+        <button type="button" class="btn btn-primary" v-on:click="submit()">Submit</button>
     </form>
 </div>
 @endsection
@@ -42,24 +42,24 @@ var vm = new Vue({
         name: '',
         percent: 0,
         endTime: '',
-        key: ''
+        amount: 0
     },
     methods : {
         submit: function () {
-            if(isNaN(this.percent)){
+            if(isNaN(this.percent) && isNan(this.amount)){
                 alert('Please input is number');
             }else{
-                if(this.percent>0){
+                if(this.percent>0 && this.amount>0){
                     alert('Add voucher is completed');
                     axios.post('http://fitness-center.dev/api/vouchers', {
-                        name: this.name, price:this.percent,endTime:this.endTime, number:this.key
+                        name: this.name, price:this.percent,endTime:this.endTime, number:this.amount
                     }).then(function (response) {
                         console.log(response.data.data);
                         alert(response.data.data);
                         vm.name = '';
                         vm.percent = 0;
                         vm.endTime = '';
-                        vm.key = '';
+                        vm.amount = 0;
                     }).catch(function (error) {
                         alert('Error (see console log)');
                         console.log(error);

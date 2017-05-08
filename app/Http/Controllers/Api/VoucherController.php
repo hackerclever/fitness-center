@@ -45,7 +45,7 @@ class VoucherController extends Controller
       $number = intval(trim($request->number));
       $vouchers = array();
       if (!empty($name) && !empty($price) && !empty($endTime) && !empty($number)){
-        for ($n = 0; $n <= $number; $n++) {
+        for ($n = 0; $n < $number; $n++) {
           $voucher = new \App\Voucher;
           $voucher->name = $name;
           $voucher->price = $price;
