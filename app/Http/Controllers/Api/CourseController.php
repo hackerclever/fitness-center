@@ -23,6 +23,7 @@ class CourseController extends Controller
                      'time_courses.day',
                      'time_courses.startTime',
                      'time_courses.endTime')
+            ->orderBy('time_courses.startTime')
             ->get();
       return [
           'success' => true,
