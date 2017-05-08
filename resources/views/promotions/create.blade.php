@@ -1,35 +1,28 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="select-form" id = 'vue-add-promotion'>
-
-    <form class='select-trainer' align = 'center'>
-      <div class="panel-heading">
-          <h1>Promotion</h1>
-      </div>
-      <div class="field">
-        <p class="control">
-          <span class="select">
-            <p>Promotion Name :  <input type="text" v-model = 'name'></p>
-            <p>Discount Percent :  <input type="text" v-model = 'percent'></p>
-          </span>
-        </p>
-      </div>
-      <div class="field">
-        <p class="control">
-          <span class="select">
-            <p>End Time :  <select v-model = 'endTime'>
-              <option value ="start">Select months</option>
-              <option value="endTime1">1</option>
-              <option value="endTime2">2</option>
-              <option value="endTime3">3</option>
-              <option value="endTime4">4</option>
-              <option value="endTime4">5</option>
-            </select></p>
-          </span>
-        </p>
-      </div>
-      <button type="button" name="button" v-on:click ="addPromotion()">Add Promotion</button>
+<div class="container-fluid" id = 'vue-add-promotion'>
+    <h1>Create Promotion</h1>
+    <form class="select-promotion">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Promotion Name :</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" v-model='name'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Discount percentage :</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" v-model='percent'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">End time :</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="date" v-model='endTime'>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" v-on:click='addPromotion'>Submit</button>
     </form>
 </div>
 @endsection
