@@ -40,3 +40,5 @@ Route::get('/contactUs/index', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('register/create', 'RegisterController@showlstCustomer');

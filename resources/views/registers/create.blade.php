@@ -1,38 +1,95 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-
+<!--
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 <div class="container">
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#used" id ="used">เคยเป็นสมาชิก</button>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#noused" id ="noused">ไม่เคยเป็นสมาชิก</button>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">เทรนเนอร์</button>
+
+    {{ csrf_field() }}
+    <button type="button" class="btn btn-info btn-lg"  id="used" value="used">เคยเป็นสมาชิก</button>
+    <button  class="btn btn-info btn-lg"  value="noused" name="noused">ไม่เคยเป็นสมาชิก</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" >เทรนเนอร์</button>
+
 </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="noused" role="dialog">
-      <div class="modal-dialog">
+<script src="/js/vue.js" charset="utf-8"></script>
+<script>
+$(document).ready(function(){
+  // var str  =document.getElementById('used').value=
+  $('#used').click(function(){
+    $('#usedCus').show();
+    $('#nousedCus').hide();
+      //Some code
+  });
 
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
-          </div>
-          <div class="modal-body">
-            <div class="row">
+});
+
+var vm = new Vue({
+    el: '#vue-add-customer',
+    data:{
+      isUsed: '',
+      typeCus: '',
+      browser: '',
+      type: '',
+      detailCus: ''
+    },
+
+    methods:{
+
+      insertCustomer :function(){
+          // console.log(id);
+          var isused = document.getElementById("used").value;
+          var test = document.getElementById("selects").value;
+          var browser = document.getElementById("browser").value;
+          var type = document.getElementById("selects");
+          // var e = document.getElementById("ddlViewBy");
+          var strCus = type.options[type.selectedIndex].value;
+          // console.log(strCus);
+          if(strCus=='normal'){
+            var typeMonth = document.getElementById("lstmonth");
+            var detailCus = typeMonth.options[typeMonth.selectedIndex].value;
+            // console.log(strMonth);
+          }
+          if(strCus=='course'){
+            var typeCourse = document.getElementById("lstcourse");
+            var detailCus = typeCourse.options[typeCourse.selectedIndex].value;
+
+          }
+          if(strCus=='vip'){
+            var typeTrainner = document.getElementById("lstTrainner");
+            var detailCus = typeTrainner.options[typeTrainner.selectedIndex].value;
+
+          }
+          jQuery.ajax({
+            url: '/api/customers/',
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'POST',
+            success: function(data){
+              //
+              alert(data.isUsed);
+         }
+       });
+      }
+
+    }
+});
+
+</script>
+            <div class="row" id = 'nousedCus' style="display:none">
                 <div class="col-md-8 col-md-offset-2">
 
-                            <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                            <form  class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                                 {{ csrf_field() }}
 
                                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -156,40 +213,15 @@
                             </script>
                 </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" type ="submit">บันทึกข้อมูล</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
 
 
-
-  <!-- <div class="modal fade" id="used" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <!-- <div class="modal-content" > -->
+            <div class="row" id = 'usedCus' style="display:none" >
+                <div class="col-md-8 col-md-offset-2" id="vue-add-customer">
 
 
-        <!-- <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">ลงทะเบียน</h4>
-          </div> -->
-
-          <!-- <div class="modal-body" > -->
-            <!-- <p>Some text in the modal.</p> -->
-
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2" >
-
-
-                <form  method="get" >
-                        <input list="browsers" name="browser">
+                <form @submit.prevent= "insertCustomer"  id="addForm" action="#"  method="post" >
+                  <!-- {{ csrf_field() }} -->
+                        <input list="browsers" name="browser" id="browser">
                         <datalist id="browsers">
 
                             @foreach($data as $d)
@@ -197,7 +229,8 @@
                             @endforeach
 
                         </datalist>
-                        <input type="submit">
+                        <input type="submit"  >
+
                   <br></br>
                   <select id ="selects" class="form-control">
                       <option value="null">--กรุณาเลือกประเภทลูกค้า--</option>
@@ -233,10 +266,12 @@
 
                     </select>
                   </div>
-
+                  <button class="btn btn-default" type=button onclick="prepareInsert()">บันทึกข้อมูล</button>
+                  <!-- <button type="button" class="btn btn-default">Close</button>  -->
                 </form>
                           <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
-
+            </div>
+            </div>
                           <script>
                           $(document).ready(function(){
                               $('#selects').on('change', function() {
@@ -271,18 +306,7 @@
 
 
                           </script>
-<!--
-                      </div>
-                  </div>
-            </div>
-          <div class="modal-footer">
 
-            <button type="button" class="btn btn-default" type ="submit">บันทึกข้อมูล</button>
-          </div>
-
-          </div>
-        </div>
-      </div> -->
 
 
 @endsection
