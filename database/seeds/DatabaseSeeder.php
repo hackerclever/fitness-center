@@ -36,6 +36,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'user5@hotmail.com',
             'password' => Hash::make('5555')
         ]);
+        App\User::create([
+            'name' => 'user6',
+            'email' => 'user6@hotmail.com',
+            'password' => Hash::make('6666')
+        ]);
 
         App\TypeClass::create([
             'name' => 'Strength & Conditioning',
@@ -62,17 +67,72 @@ class DatabaseSeeder extends Seeder
             'description' => '',
             'price' => 1500.00
         ]);
+        App\TypeClass::create([
+            'name' => 'Yoka',
+            'description' => '',
+            'price' => 1500.00
+        ]);
 
         App\Personality::create([
             'user_id' => 1,
-            'name' => 'Pink',
+            'name' => 'June',
             'tel' => '0890987654',
-            'image' => 'pink'
+            'image' => 'june'
+        ]);
+        App\Personality::create([
+            'user_id' => 2,
+            'name' => 'Jimmy',
+            'tel' => '081237654',
+            'image' => 'jimmy'
+        ]);
+        App\Personality::create([
+            'user_id' => 3,
+            'name' => 'Bow',
+            'tel' => '0898761234',
+            'image' => 'bow'
+        ]);
+        App\Personality::create([
+            'user_id' => 4,
+            'name' => 'Nina',
+            'tel' => '0858674231',
+            'image' => 'nina'
+        ]);
+        App\Personality::create([
+            'user_id' => 5,
+            'name' => 'Keng',
+            'tel' => '0835129876',
+            'image' => 'keng'
+        ]);
+        App\Personality::create([
+            'user_id' => 6,
+            'name' => 'Vi',
+            'tel' => '0843754987',
+            'image' => 'vi'
         ]);
 
         App\TypeUser::create([
             'user_id' => 1,
+            'role' => 'Trainer'
+        ]);
+        App\TypeUser::create([
+            'user_id' => 2,
+            'role' => 'Trainer'
+        ]);
+        App\TypeUser::create([
+            'user_id' => 3,
+            'role' => 'Trainer'
+        ]);
+        App\TypeUser::create([
+            'user_id' => 4,
+            'role' => 'Trainer'
+        ]);
+        App\TypeUser::create([
+            'user_id' => 5,
             'role' => 'Staff'
+        ]);
+        App\TypeUser::create([
+            'user_id' => 6,
+            'role' => 'Admin'
         ]);
         // $user = App\User::where('name', '=', 'user1')->first();
         // if (!is_null($user)) {
@@ -83,30 +143,80 @@ class DatabaseSeeder extends Seeder
         //     ]);
         // }
 
-        App\Customer::create([
+        App\Customer::create([ // 1
             'name' => 'Aum Patchrapa',
             'tel' => '0811111111',
             'image' => 'aum'
         ]);
-        App\Customer::create([
+        App\Customer::create([ // 2
             'name' => 'Araya Alberta Hargate',
             'tel' => '0822222222',
             'image' => 'chom'
         ]);
-        App\Customer::create([
+        App\Customer::create([ // 3
             'name' => 'Tor Thanapob',
             'tel' => '0912345678',
             'image' => 'tor'
+        ]);
+        App\Customer::create([ // 4
+            'name' => 'Kao Supassra',
+            'tel' => '0844444444',
+            'image' => 'kao'
+        ]);
+        App\Customer::create([ // 5
+            'name' => 'Jame Jirayu',
+            'tel' => '0955555555',
+            'image' => 'jame'
+        ]);
+        App\Customer::create([ // 6
+            'name' => 'G-Dragon',
+            'tel' => '0966666666',
+            'image' => 'gdragon'
+        ]);
+        App\Customer::create([ // 7
+            'name' => 'Lisa',
+            'tel' => '0877777777',
+            'image' => 'lisa'
         ]);
 
         App\NormalCustomer::create([
             'customer_id' => 1,
             'expire' => '2017-06-12'
         ]);
+        App\NormalCustomer::create([
+            'customer_id' => 3,
+            'expire' => '2017-06-12'
+        ]);
+        App\NormalCustomer::create([
+            'customer_id' => 4,
+            'expire' => '2017-06-12'
+        ]);
+        App\NormalCustomer::create([
+            'customer_id' => 5,
+            'expire' => '2017-06-12'
+        ]);
 
         App\VIPCustomer::create([
             'customer_id' => 2,
             'count' => 10
+        ]);
+        App\VIPCustomer::create([
+            'customer_id' => 6,
+            'count' => 20
+        ]);
+        App\VIPCustomer::create([
+            'customer_id' => 7,
+            'count' => 20
+        ]);
+
+        $type_class_id = App\TypeClass::where('name', '=' , 'Strength & Conditioning')->first();
+        $type_class_id->course()->saveMany([
+            new App\Course([
+                'trainer_id' => 4
+            ]),
+            new App\Course([
+                'trainer_id' => 3
+            ])
         ]);
 
         $type_class_id = App\TypeClass::where('name', '=' , 'Dance')->first();
@@ -166,6 +276,18 @@ class DatabaseSeeder extends Seeder
             'day' => 'Tue',
             'startTime' => 480,
             'endTime' => 540
+        ]);
+        App\TimeCourse::create([
+            'course_id' => 4,
+            'day' => 'Sun',
+            'startTime' => 900,
+            'endTime' => 990
+        ]);
+        App\TimeCourse::create([
+            'course_id' => 5,
+            'day' => 'Sun',
+            'startTime' => 600,
+            'endTime' => 690
         ]);
 
         App\NormalPrice::create([
