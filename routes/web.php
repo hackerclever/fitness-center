@@ -33,6 +33,10 @@ Route::get('/voucher/create', 'VoucherController@create');
 
 Route::get('/booking/create', 'BookingController@create');
 
+
+Route::get('/contactUs/index', function(){
+  return view('/contactUs/index');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
