@@ -151,15 +151,21 @@ class DatabaseSeeder extends Seeder
 
         App\TimeCourse::create([
             'course_id' => 1,
-            'endTime' => '2017-05-07 12:30:00'
+            'day' => 'Mon',
+            'startTime' => 480,
+            'endTime' => 540
         ]);
         App\TimeCourse::create([
             'course_id' => 2,
-            'endTime' => '2017-05-07 15:30:00'
+            'day' => 'Mon',
+            'startTime' => 480,
+            'endTime' => 570
         ]);
         App\TimeCourse::create([
             'course_id' => 3,
-            'endTime' => '2017-05-07 04:30:00'
+            'day' => 'Tue',
+            'startTime' => 480,
+            'endTime' => 540
         ]);
 
         App\NormalPrice::create([

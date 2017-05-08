@@ -15,8 +15,9 @@ class CreateTimeCoursesTable extends Migration
     {
         Schema::create('time_courses', function (Blueprint $table) {
             $table->integer('course_id')->unsigned();
-            $table->dateTime('startTime')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->dateTime('endTime');
+            $table->string('day',3);
+            $table->integer('startTime');
+            $table->integer('endTime');
             $table->timestamps();
 
             $table->foreign('course_id')
