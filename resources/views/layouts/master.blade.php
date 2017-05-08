@@ -12,6 +12,20 @@
 
         <!-- Custom styles for this template -->
         <!-- <link href="jumbotron.css" rel="stylesheet"> -->
+        <style>
+        body {
+          padding-top: 100px;
+        }
+
+        hr {
+          margin-top: 100px;
+        }
+
+        h1 {
+          padding-bottom: 40px;
+        }
+
+        </style>
     </head>
     <body>
         @include('layouts._navbar')
@@ -24,6 +38,7 @@
         @include('layouts._footer')
 
         <script src="/js/app.js" charset="utf-8"></script>
+        <script src="/js/vue.js"></script>
         @yield('script')
 
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
