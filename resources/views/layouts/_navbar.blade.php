@@ -33,6 +33,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/voucher/create') }}">Voucher</a>
             </li>
+            @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/promotion/show') }}">Promotion</a>
+            </li>
             @endif
         @endif
     </ul>
