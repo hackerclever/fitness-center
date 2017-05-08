@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <h1>Type Class</h1>
+    <h1>Our Classes</h1>
 
 </div>
 <div class="card-deck" id = 'vue-app-typeClass'>
@@ -12,9 +12,8 @@
   <div class="card">
     <img class="card-img-top" src="/images/discount{{$d->id}}.jpg" style="width:338px;height:170px;">
     <div class="card-block">
-      <h4 class="card-title">TypeClass name : {{$d->name}}</h4>
-      <p class="card-text"> Percent : {{$d->percent}}</p>
-      <p class="card-text"> Percent : {{$d->percent}}</p>
+      <h4 class="card-title">{{$d->name}}</h4>
+      <p class="card-text">{{$d->description}}</p>
     </div>
   </div>
 </div>

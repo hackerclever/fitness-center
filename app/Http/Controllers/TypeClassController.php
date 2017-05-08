@@ -19,7 +19,7 @@ class TypeClassController extends Controller
     public function index()
     {
       $client = new \GuzzleHttp\Client();
-      $call = "typeClass";
+      $call = "typeclass";
       $response = $client->request('GET', "{$this->api}{$call}", [
           'form_params' => []
       ]);
