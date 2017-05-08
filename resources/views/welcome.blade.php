@@ -12,6 +12,8 @@
         <a href="#" class="thumbnail">
           <img src="https://unsplash.it/200?image=0" alt="Sample Image">
         </a>
+        <br>
+        <a href="{{ url('/contactUs/index') }}">contact</a>
       </div>
       <div class="col-xs-6 col-md-3">
         <a href="#" class="thumbnail">
