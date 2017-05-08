@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content')
+<!-- @section('content')
 <div class="select-form" id = 'vue-add-trainer'>
 
     <form class='select-trainer' align = 'center'>
@@ -55,9 +55,9 @@ var vm = new Vue({
     methods:
     {
       addTrainer : function(){
-        
+
       }
     }
 });
 </script>
-@endsection
+@endsection -->
