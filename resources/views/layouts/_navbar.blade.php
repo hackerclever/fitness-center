@@ -50,7 +50,7 @@
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               {{ Auth::user()->name }} <span class="caret"></span>
+               {{ Auth::user()->name.":".Auth::user()->typeUser->role }} <span class="caret"></span>
              </a>
              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -62,19 +62,23 @@
                 </form>
              </div>
            </li>
+           @if (Auth::user()->typeUser->role=='Admin')
            <li class="nav-item">
                <a class="nav-link" href="{{ url('/register') }}">Register</a>
            </li>
+           @endif
 
         </ul>
 
           @else
-          <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/login') }}">Login</a>
-            </li>
 
-          </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/login') }}">Login</a>
+              </li>
+
+            </ul>
+
           @endif
      @endif
 
