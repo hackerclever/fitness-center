@@ -42,7 +42,31 @@ class CourseController extends Controller
 
     public function create()
     {
-        return view('courses/create');
+      $client = new \GuzzleHttp\Client();
+      $call = "typeclass";
+      $response = $client->request('GET', "{$this->api}{$call}", [
+          'form_params' => []
+      ]);
+
+      $client2 = new \GuzzleHttp\Client();
+      $call2 = "trainers";
+      $response2 = $client2->request('GET', "{$this->api}{$call2}", [
+          'form_params' => []
+      ]);
+
+      $resBody = $response->getBody();
+      $res = json_decode($resBody);
+
+      $resBody2 = $response2->getBody();
+      $res2 = json_decode($resBody2);
+      return view('courses.create' ,[
+          'success' => !is_null($res)? $res->success: false,
+          'data' => !is_null($res)?$res->data: null,
+          'resBody' => $response->getBody(),
+          'data2' => !is_null($res2)?$res2->data: null,
+          'resBody2' => $response2->getBody()
+      ]);
+
     }
 
 }

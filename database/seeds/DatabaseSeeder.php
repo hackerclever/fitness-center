@@ -59,17 +59,17 @@ class DatabaseSeeder extends Seeder
         ]);
         App\TypeClass::create([
             'name' => 'Dance',
-            'description' => '',
+            'description' => 'BODYJAM® is the cardio workout where you are free to enjoy the sensation of dance. An addictive fusion of the latest dance styles and hottest new sounds puts the emphasis as much on having fun as on breaking a sweat.',
             'price' => 2500.00
         ]);
         App\TypeClass::create([
-            'name' => 'Mind & Body',
-            'description' => '',
+            'name' => 'Exclusive Signature',
+            'description' => 'A power and strength training session involving the whole group; high resistance peddling for sets of 15 second sprints; a group race where power, speed and endurance combine for a big finish.',
             'price' => 1500.00
         ]);
         App\TypeClass::create([
-            'name' => 'Yoka',
-            'description' => '',
+            'name' => 'Mind & Body',
+            'description' => "Designed to improve athleticism with a fast paced, endurance focused 90 minute class which will advance each person's personal practice through a number of highly challenging poses in demanding sequences.",
             'price' => 1500.00
         ]);
 
