@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,14 @@ class CourseController extends Controller
      */
     public function index()
     {
-      $courses = \App\Course::all();
+      $courses = DB::table('time_courses')
+            ->join('courses', 'time_courses.course_id', '=', 'courses.id')
+            ->join('type_classes', 'courses.type_class_id', '=', 'type_classes.id')
+            ->select('type_classes.id', 'courses.id', 'type_classes.name',
+                     'type_classes.description', 'type_classes.price',
+                     'time_courses.startTime',
+                     'time_courses.endTime')
+            ->get();
       return [
           'success' => true,
           'data' => $courses
@@ -39,7 +47,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
