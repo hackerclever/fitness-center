@@ -44,10 +44,12 @@
     <div class="form-group row">
       <label for="trainner-text-input" class="col-2 col-form-label">Trainner Name</label>
       <div class="col-10">
-        <select class="form-control" v-model="formcourse.trainerName" id="trainerNameSelect">
+        <select class="form-control" v-model="trainerName" id="trainerNameSelect" v-if="showTable==0">
           @foreach($data2 as $d)
             <option>{{$d->id." ".$d->name}}</option>
           @endforeach
+        </select>
+        <select class="form-control" v-model="trainerName" v-if="showTable>0" disabled>
         </select>
       </div>
     </div>
@@ -133,7 +135,7 @@
     </div>
 
     <button type="button" class="btn btn-primary" v-on:click="submitCourseForm()">OK</button>
-    <button type="button" class="btn btn-success">Summit</button>
+    <button type="button" class="btn btn-success" v-on:click="submitTotal()">Summit</button>
 
 </div>
 @endsection
@@ -146,13 +148,13 @@ var vm = new Vue({
     el: '#vue-course',
     data: {
         typeClass:'',
+        trainerName:'',
         courses:[],
         days:[],
         startTimes:[],
         endTimes:[],
         showTable:0,
         formcourse:{
-          trainerName:'',
           day:'',
           startTime:'',
           endTime:''
@@ -163,77 +165,85 @@ var vm = new Vue({
     {
       submitCourseForm:function(){
           if(this.typeClass.length>0
-  					&& this.formcourse.trainerName.length>0
-  					&& this.formcourse.day.length>0
-  					&& this.formcourse.startTime.length>0
+            && this.trainerName.length>0
+            && this.formcourse.day.length>0
+            && this.formcourse.startTime.length>0
             && this.formcourse.endTime.length>0
-            && this.formcourse.startTime<this.formcourse.endTime)
-  				{
-            // for(int i=0;i<this.courses.length;i++){
-            //     if(this.formcourse.trainerName==this.courses.trainerName[i]
-            //       && this.formcourse.typeClass==this.courses.typeClass[i]){
-            //         if(this.formcourse.day==this.courses.day[i]){
-            //           if(this.formcourse.startTime<this.courses.day[i])
-            //         }
-            //     }
+            && this.formcourse.startTime<this.formcourse.endTime
+            && this.formcourse.startTime!=this.formcourse.endTime)
+          {
+
+            // if(this.showTable==0) {
+              this.pushData();
             // }
-
-                this.courses.push({
-                  typeClass:this.typeClass,
-                  trainerName:this.formcourse.trainerName,
-                  day:this.formcourse.day,
-                  startTime:this.formcourse.startTime,
-                  endTime:this.formcourse.endTime
-                })
-                this.days.push({
-                  day:this.formcourse.day
-                })
-                this.startTimes.push({
-                  time:this.formcourse.startTime
-                })
-                this.endTimes.push({
-                  time:this.formcourse.endTime
-                })
-
-                console.log(this.courses.length);
-                if(this.courses.length>0){
-                  this.clearFormCourse();
-                  this.showTable++;
-
-                }
+            // else {
+            //   for(var i=0; i<this.courses.length; i++){
+            //     if(this.formcourse.day==this.courses[i].day){
+            //       if(this.formcourse.startTime<this.courses[i].startTime
+            //         && this.formcourse.endTime<this.courses[i].startTime
+            //         || this.formcourse.startTime>this.courses[i].endTime){
+            //           this.pushData();
+            //       }
+            //     }
+            //     else {
+            //       this.pushData();
+            //     }
+            //   }
+            // }
           }
-        
 
-          else if (this.formcourse.startTime>this.formcourse.endTime){
+          else if (this.formcourse.startTime>this.formcourse.endTime
+                  || this.formcourse.startTime==this.formcourse.endTime){
             alert ("Please select time again");
           }
           else {
-            alert ("Invalid Input Data");
+            alert (this.trainerName.length);
           }
 
       },
 
       clearFormCourse:function(){
-				this.formcourse.trainerName='';
-				this.formcourse.day='';
-				this.formcourse.startTime='';
+        this.formcourse.day='';
+        this.formcourse.startTime='';
         this.formcourse.endTime='';
-			}
+      },
 
-      // submitTotal: function () {
-      //       axios.post('http://fitness-center.dev/api/courses', {
-      //
-      //           type_class_id: this.courses.typeClass
-      //           trainer_id: this.courses.trainerName
-      //       }).then(function (response) {
-      //           console.log(response.data.data);
-      //           alert(response.data.data);
-      //           vm.name = '';
-      //       }).catch(function (error) {
-      //           alert('Error (see console log)');
-      //           console.log(error);
-      //       });
-      //   }
+      pushData:function() {
+        this.courses.push({
+          typeClass:this.typeClass,
+          trainerName:this.trainerName,
+          day:this.formcourse.day,
+          startTime:this.formcourse.startTime,
+          endTime:this.formcourse.endTime
+        })
+        this.days.push(this.formcourse.day);
+        this.startTimes.push(this.formcourse.startTime);
+        this.endTimes.push(this.formcourse.endTime);
+
+        console.log(this.courses.length);
+        if(this.courses.length>0){
+          this.clearFormCourse();
+          this.showTable++;
+
+        }
+      },
+
+      submitTotal: function () {
+            axios.post('http://fitness-center.dev/api/courses', {
+                typeClassID: this.typeClass,
+                trainerID: this.trainerName,
+                day:this.days,
+                startTime:this.startTimes,
+                endTime:this.endTimes
+            }).then(function (response) {
+                console.log(response.data.data);
+                alert(response.data.data);
+                vm.name = '';
+            }).catch(function (error) {
+                alert('Error (see console log)');
+                console.log(error);
+            });
+      }
     }
 
 });
