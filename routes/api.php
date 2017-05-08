@@ -21,6 +21,7 @@ Route::resource('typeclass', 'Api\TypeClassController');
 Route::resource('courses', 'Api\CourseController');
 Route::resource('vouchers', 'Api\VoucherController');
 Route::resource('promotions', 'Api\PromotionController');
+Route::resource('trainers', 'Api\TrainerController');
 // Route::get('singers/{id}/albums', 'Api\SingersController@albums');
 // Route::resource('singers', 'Api\SingersController');
 // Route::get('albums/{id}/songs', 'Api\AlbumsController@songs');
