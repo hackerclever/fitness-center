@@ -112,24 +112,24 @@ class DatabaseSeeder extends Seeder
         $type_class_id = App\TypeClass::where('name', '=' , 'Dance')->first();
         $type_class_id->course()->saveMany([
             new App\Course([
-                'user_id' => 1
+                'trainer_id' => 1
             ]),
             new App\Course([
-                'user_id' => 3
+                'trainer_id' => 3
             ])
         ]);
 
         App\Course::create([
             'type_class_id' => 2,
-            'user_id' => 1
+            'trainer_id' => 1
         ]);
         App\Course::create([
             'type_class_id' => 3,
-            'user_id' => 1
+            'trainer_id' => 1
         ]);
         App\Course::create([
             'type_class_id' => 4,
-            'user_id' => 2
+            'trainer_id' => 2
         ]);
 
         App\CourseCustomer::create([
