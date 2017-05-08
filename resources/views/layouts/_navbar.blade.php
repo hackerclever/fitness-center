@@ -37,6 +37,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/promotion/show') }}">Promotion</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/typeClass/show') }}">Classes</a>
+            </li>
             @endif
         @endif
     </ul>
