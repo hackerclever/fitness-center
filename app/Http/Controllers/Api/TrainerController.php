@@ -15,7 +15,12 @@ class TrainerController extends Controller
      */
     public function index()
     {
-      $trainer = DB::table('type_users')->where('role', 'Trainer')->get();
+      $trainer = DB::table('type_users')
+                ->join('users', 'users.id', '=', 'type_users.user_id')
+                ->select('users.id','users.name')
+                ->where('role', 'Trainer')
+                ->get();
+
       return [
           'success' => true,
           'data' => $trainer
