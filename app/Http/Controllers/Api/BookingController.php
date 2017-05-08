@@ -50,24 +50,28 @@ class BookingController extends Controller
         $dt = Carbon::create($year, $month, $day, $hours, $minute,0,0);
         $booked = DB::table('bookings')
                       ->where('user_id', '=', $trainerID)
-                      ->where('customer_id', '=', $customerID)
-                      ->where('startTime', '<', $dt->addHours(1))
+                      ->where('startTime', '<=', $dt)//, '<', 'endTime')
                       ->where('endTime', '>', $dt)
+                      // ->where('startTime', '<', $dt->addHours(1), '<', 'endTime')
                       ->count();
         $booking = new \App\Booking;
         $booking->customer_id = $customerID;
         $booking->user_id = $customerID;
         $booking->startTime = $year."-".$month."-".$day." ".$hours.":".$minute.":00";
         $booking->endTime = $year."-".$month."-".$day." ".($hours+1).":".$minute.":00";
-        if (!empty($booking->customer_id ) && !empty($booking->user_id) && !empty($booking->startTime) && !empty($booking->endTime) && $booking->save()){
+        if (!empty($booking->customer_id ) && !empty($booking->user_id) && !empty($booking->startTime) && !empty($booking->endTime) && $booked==0 && $booking->save()){
             return [
                 'success' => true,
-                'data' => $booking
+                'data' => $booking,
+                'count' => $booked,
+                'date' => $dt
             ];
         } else {
             return [
                 'success' => false,
-                'data' => "Some error occurred"
+                'data' => "Some error occurred",
+                'count' => $booked,
+                'date' => $dt
             ];
         }
     }

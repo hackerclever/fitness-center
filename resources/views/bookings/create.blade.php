@@ -29,14 +29,19 @@
 </p>
 </div>
 
-      <div class="field">
-        <p class="control">
-          <span class="select">
-            <select>
+    <div class="field">
+      <p class="control">
+        <input list="browse" name="browser" v-model='startTime'>
+          <datalist id = "browse">
               <option value = '' >Start Time</option>
-              <option value="startTime1">Start time from db</option>
-            </select>
-          </span>
+              <option value="17-5-11-18-00">2017 เดือน 5 วันที่ 11 เวลา 18.00</option>
+              <option value="17-5-15-13-00">2017 เดือน 5 วันที่ 15 เวลา 13.00</option>
+              <option value="17-5-24-14-30">2017 เดือน 5 วันที่ 24 เวลา 14.30</option>
+              <option value="17-6-8-8-30">2017 เดือน 6 วันที่ 8 เวลา 8.30</option>
+              <option value="17-6-27-15-00">2017 เดือน 6 วันที่ 27 เวลา 15.00</option>
+              <option value="17-7-15-10-00">2017 เดือน 7 วันที่ 13 เวลา 10.00</option>
+              <option value="17-7-22-13-30">2017 เดือน 7 วันที่ 22 เวลา 13.30</option>
+            </datalist>
         </p>
       </div>
 
@@ -57,7 +62,6 @@ var vm = new Vue({
       idTrainer : '',
       trainer : '',
       startTime : '',
-      endTime : '',
       data,
       data1,
       data2
@@ -66,6 +70,7 @@ var vm = new Vue({
     methods:
     {
       addTrainer : function(){
+        console.log(this.startTime);
         // axios.post('http://fitness-center.dev/api/bookings', {
         //         id_customer: this.idCustomer , id_trainer: this.isTrainer
         //     }).then(function (response) {
