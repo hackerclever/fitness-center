@@ -16,10 +16,10 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('type_class_id')->unsigned();
-            $table->integer('user_id')->unsigned(); //Trainner
+            $table->integer('trainer_id')->unsigned(); //Trainner
             $table->timestamps();
 
-            $table->foreign('user_id')
+            $table->foreign('trainer_id')
                   ->references('id')
                   ->on('users');
 

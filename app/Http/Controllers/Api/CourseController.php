@@ -47,6 +47,26 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+      //{typeClassID:1, data:[]}
+      $typeClassID = intval(trim($request->typeClassID));
+      $trainerID = intval(trim($request->trainerID));
+      $day = $request->day;
+      $startTime = $request->startTime;
+      $endTime = $request->endTime;
+
+      $course = new \App\Course;
+      $course->type_class_id = $typeClassID;
+      $course->trainer_id = $trainerID;
+      $course->save():
+
+      for($n = 0 ; $n < sizeof($startTime) ; $n++){
+        $timeCourse = new \App\TimeCourse;
+        $timeCourse->course_id = $course->id;
+        $timeCourse->day = $day[$n];
+        $timeCourse->startTime = $startTime[$n];
+        $timeCourse->endTime = $endTime[$n];
+        $timeCourse->save();
+      }
 
     }
 

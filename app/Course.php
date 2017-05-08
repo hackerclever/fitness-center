@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
+  protected $fillable = ['type_class_id', 'trainer_id'];
     public function typeClass()
     {
         return $this->belongsTo('App\TypeClass');
