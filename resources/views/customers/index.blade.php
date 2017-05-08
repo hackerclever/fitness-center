@@ -35,7 +35,7 @@
   <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-  <img src= '@{{img}}' width="150" height="150">
+  <!-- <img src= '@{{img}}' width="150" height="150"> -->
   <h1>@{{nameGet}}</h1>
   <p>Type of customer : </p>
   <p>Tel. : @{{telGet}}</p>
@@ -56,7 +56,7 @@ var vm = new Vue({
       name:'',
       nameGet : '',
       telGet:'',
-      img : ' ',
+      // img : ' ',
       data
     },
 
@@ -69,7 +69,7 @@ var vm = new Vue({
           if(this.data.data[i].name == this.name){
             this.nameGet = this.name;
             this.telGet = this.data.data[i].tel;
-            this.img = this.data.data[i].img;
+            // this.img = this.data.data[i].img;
             this.isFound = true;
             // this.name = '';
           }else{
