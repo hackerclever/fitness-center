@@ -7,13 +7,17 @@
 </div>
 <div class="card-deck" id = 'vue-app-promotions'>
   @foreach($data as $d)
+
+      <div class="col-sm-4">
   <div class="card">
-    <img class="card-img-top" src="/images/discount{{$d->id}}.jpg" style="width:347px;height:170px;">
+    <img class="card-img-top" src="/images/discount{{$d->id}}.jpg" style="width:338px;height:170px;">
     <div class="card-block">
       <h4 class="card-title">Promotion name : {{$d->name}}</h4>
       <p class="card-text"> Percent : {{$d->percent}}</p>
+      <p class="card-text"> Percent : {{$d->percent}}</p>
     </div>
   </div>
+</div>
   @endforeach
 </div>
 @endsection
