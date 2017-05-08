@@ -32,8 +32,6 @@ class CustomerController extends Controller
       $resBody = $response->getBody();
       $res = json_decode($resBody);
         return view('customers.index',[
-            'statusCode' => $response->getStatusCode(),
-            'responseHeader' => $response->getHeader('content-type')[0],
             'success' => $res->success,
             'data' => $res->data,
             'resBody' => $response->getBody()
@@ -55,8 +53,6 @@ class CustomerController extends Controller
       $resBody = $response->getBody();
       $res = json_decode($resBody);
         return view('customers.show' ,[
-            'statusCode' => $response->getStatusCode(),
-            'responseHeader' => $response->getHeader('content-type')[0],
             'success' => !is_null($res)? $res->success: false,
             'data' => !is_null($res)?$res->data: null,
             'resBody' => $response->getBody()
