@@ -77,7 +77,7 @@ var vm = new Vue({
           }
         }
         if(a == this.data.data.length){
-          $(".alert").alert("No Information");
+          alert("No Information");
           this.name = '';
         }
       },
