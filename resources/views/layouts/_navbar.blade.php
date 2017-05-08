@@ -59,6 +59,10 @@
                 </form>
              </div>
            </li>
+           <li class="nav-item">
+               <a class="nav-link" href="{{ url('/register') }}">Register</a>
+           </li>
+
         </ul>
 
           @else
@@ -66,6 +70,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/login') }}">Login</a>
             </li>
+
           </ul>
           @endif
      @endif

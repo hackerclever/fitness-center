@@ -14,10 +14,10 @@ class TypeClassController extends Controller
      */
     public function index()
     {
-      $typeClasses = \App\TypeClass::all();
+      $typeClass = \App\TypeClass::all();
       return [
           'success' => true,
-          'data' => $typeClasses
+          'data' => $typeClass
       ];
     }
 

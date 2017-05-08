@@ -17,20 +17,12 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Start time :</label>
-            <div class="col-sm-10 input-group">
-                <input type="text" class="form-control" aria-describedby="basic-addon2" v-model='startTime'>
-                <span class="input-group-addon" id="basic-addon2">Hours</span>
-            </div>
-        </div>
-        <div class="form-group row">
             <label class="col-sm-2 col-form-label">End time :</label>
-            <div class="col-sm-10 input-group">
-                <input type="text" class="form-control" aria-describedby="basic-addon2" v-model='endTime'>
-                <span class="input-group-addon" id="basic-addon2">Hours</span>
+            <div class="col-sm-10">
+                <input class="form-control" type="date" v-model='endTime'>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" v-on:click='addPromotion'>Submit</button>
+        <button type="button" class="btn btn-primary" v-on:click='addPromotion'>Submit</button>
     </form>
 </div>
 @endsection
@@ -43,23 +35,34 @@ var vm = new Vue({
         // 'name' : 'Database',
         name: '',
         percent: 0,
-        startTime: 0,
         endTime: 0
     },
     methods : {
         addPromotion : function(){
-            if(isNaN(this.percent) && isNan(this.startTime) && isNan(this.endTime)){
+            if(isNaN(this.percent)){
                 alert('Please input is number');
             }else{
-                if(this.percent>0 && this.startTime>0 && this.endTime>0){
+                if(this.percent<0){
                     alert('Please input is more than 0');
+                }else{
+                    axios.post('http://fitness-center.dev/api/promotions', {
+                        name: this.name, percent:this.percent, endTime:this.endTime
+                    }).then(function (response) {
+                        console.log(response.data.data);
+                        alert(response.data.data);
+                        vm.name = '';
+                        vm.percent = 0;
+                        vm.endTime = '';
+                    }).catch(function (error) {
+                        alert('Error (see console log)');
+                        console.log(error);
+                    });
+                    alert('Add promotion is completed');
                 }
-                alert('Add promotion is completed');
             }
             this.name = '';
             this.percent = 0;
-            this.startTime = 0;
-            this.endTime = 0;
+            this.endTime = '';
         }
     }
 });

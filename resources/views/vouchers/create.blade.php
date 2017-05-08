@@ -11,9 +11,9 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Discount percentage :</label>
+            <label class="col-sm-2 col-form-label">Discount Price :</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" v-model='percent'>
+                <input type="text" class="form-control" v-model='price'>
             </div>
         </div>
         <div class="form-group row">
@@ -40,24 +40,24 @@ var vm = new Vue({
     data : {
         // 'name' : 'Database',
         name: '',
-        percent: 0,
+        price: 0,
         endTime: '',
         amount: 0
     },
     methods : {
         submit: function () {
-            if(isNaN(this.percent) && isNan(this.amount)){
+            if(isNaN(this.price) && isNan(this.amount)){
                 alert('Please input is number');
             }else{
-                if(this.percent>0 && this.amount>0){
+                if(this.price>0 && this.amount>0){
                     alert('Add voucher is completed');
                     axios.post('http://fitness-center.dev/api/vouchers', {
-                        name: this.name, price:this.percent,endTime:this.endTime, number:this.amount
+                        name: this.name, price:this.price,endTime:this.endTime, number:this.amount
                     }).then(function (response) {
                         console.log(response.data.data);
                         alert(response.data.data);
                         vm.name = '';
-                        vm.percent = 0;
+                        vm.price = 0;
                         vm.endTime = '';
                         vm.amount = 0;
                     }).catch(function (error) {
