@@ -43,18 +43,23 @@ var vm = new Vue({
         // 'name' : 'Database',
         name: '',
         percent: 0,
-        endTime: 'start'
+        startTime: 0,
+        endTime: 0
     },
     methods : {
         addPromotion : function(){
             if(isNaN(this.percent) && isNan(this.startTime) && isNan(this.endTime)){
                 alert('Please input is number');
             }else{
+                if(this.percent>0 && this.startTime>0 && this.endTime>0){
+                    alert('Please input is more than 0');
+                }
                 alert('Add promotion is completed');
             }
             this.name = '';
             this.percent = 0;
-            this.endTime = 'start';
+            this.startTime = 0;
+            this.endTime = 0;
         }
     }
 });

@@ -57,7 +57,7 @@ class CourseController extends Controller
       $course = new \App\Course;
       $course->type_class_id = $typeClassID;
       $course->trainer_id = $trainerID;
-      $course->save():
+      $course->save();
 
       for($n = 0 ; $n < sizeof($startTime) ; $n++){
         $timeCourse = new \App\TimeCourse;
