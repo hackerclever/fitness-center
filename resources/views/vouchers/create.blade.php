@@ -29,6 +29,11 @@
             </div>
         </div>
         <button type="button" class="btn btn-primary" v-on:click="submit()">Submit</button>
+        <div class="form-group row">
+            @for($i = 0; $i < {{amount}}; $i++)
+              <label class="col-sm-2 col-form-label">Key :</label>
+            @endforeach
+        </div>
     </form>
 </div>
 @endsection
@@ -59,10 +64,10 @@ var vm = new Vue({
                         vm.name = '';
                         vm.price = 0;
                         vm.endTime = '';
-                        vm.amount = 0;
                     }).catch(function (error) {
                         alert('Error (see console log)');
                         console.log(error);
+                        showKey++;
                     });
                 }
                 else{

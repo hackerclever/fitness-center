@@ -12,18 +12,24 @@
 
           <!-- <div class="panel-body"> -->
             <!-- <input type="text" name="customerName" v-model = 'nameC'> -->
-            <input list="browsers" name="browser" v-model='name'>
+            <div class="form-group row">
+  <label for="example-text-input" class="col-2 col-form-label">Customer : </label>
+  <div class="col-10">
+            <input list="browsers" class="form-control"  name="browser" v-model='name'>
             <datalist id = "browsers">
               @foreach ($data as $d)
               <option value= "{{$d->name}}"> {{$d->id}} </option>
               @endforeach
             </datalist>
-            <button type="button" name="button" v-on:click = 'checkCustomer()'>check </button>
-            <button type="button" name="button" v-on:click = 'clearCustomer()'>clear </button>
+            <br><br>
+            <button type="button" class="btn btn-primary" name="button" v-on:click = 'checkCustomer()'>check </button>
+            <button type="button" class="btn btn-primary" name="button" v-on:click = 'clearCustomer()'>clear </button>
           <!-- </div> -->
+
   </form>
 <!-- </div>
-</div> -->
+</div> --></div>
+</div>
 </div>
 
 <div class="no-information" v-if = '!isFound'>
