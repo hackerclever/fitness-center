@@ -17,7 +17,8 @@ class TrainerController extends Controller
     {
       $trainer = DB::table('type_users')
                 ->join('users', 'users.id', '=', 'type_users.user_id')
-                ->select('users.id','users.name')
+                ->join('personalities', 'users.id', '=', 'personalities.user_id')
+                ->select('users.id','personalities.name')
                 ->where('role', 'Trainer')
                 ->get();
 
