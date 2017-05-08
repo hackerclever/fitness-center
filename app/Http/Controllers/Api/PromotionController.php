@@ -39,7 +39,22 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $promotion = new \App\Promotion;
+      $promotion->name = $request->name;
+      $promotion->percent = $request->percent;
+      $promotion->endTime = $request->endTime;
+      if (!empty($promotion->name ) && !empty($promotion->percent) && !empty($promotion->endTime) && $promotion->save()){
+          return [
+              'success' => true,
+              'data' => $promotion,
+              'id' => $promotion->id
+          ];
+      } else {
+          return [
+              'success' => false,
+              'data' => "Some error occurred"
+          ];
+      }
     }
 
     /**
