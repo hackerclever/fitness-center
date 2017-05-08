@@ -9,7 +9,7 @@
 
         <table class="table">
             <thead>
-                <tr>
+                <tr class="bg-info">
                     <th>ID</th>
                     <th>Name</th>
                     <th>Tel.</th>
