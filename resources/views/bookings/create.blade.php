@@ -69,19 +69,19 @@ var vm = new Vue({
 
     methods:
     {
-      addTrainer : function(){
-        console.log(this.startTime);
-        // axios.post('http://fitness-center.dev/api/bookings', {
-        //         id_customer: this.idCustomer , id_trainer: this.isTrainer
-        //     }).then(function (response) {
-        //         console.log(response.data.data);
-        //         alert(response.data.data);
-        //         vm.name = '';
-        //     }).catch(function (error) {
-        //         alert('Error (see console log)');
-        //         console.log(error);
-        //     });
-      }
+      // addTrainer : function(){
+      //   console.log(this.startTime);
+      //   axios.post('http://fitness-center.dev/api/bookings', {
+      //           customer_id: this.idCustomer , ucser_id: this.isTrainer , startTime : this.startTime
+      //       }).then(function (response) {
+      //           console.log(response.data.data);
+      //           alert(response.data.data);
+      //           vm.name = '';
+      //       }).catch(function (error) {
+      //           alert('Error (see console log)');
+      //           console.log(error);
+      //       });
+      // }
     }
 });
 </script>

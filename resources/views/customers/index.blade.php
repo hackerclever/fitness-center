@@ -37,7 +37,7 @@
         <div class="panel-body">
   <!-- <img src= '@{{img}}' width="150" height="150"> -->
   <h1>@{{nameGet}}</h1>
-  <p>Type of customer : </p>
+  <p>Type of customer : @{{normal}} , @{{course}} ,  @{{vip}}</p>
   <p>Tel. : @{{telGet}}</p>
 </div>
 </div>
@@ -56,7 +56,9 @@ var vm = new Vue({
       name:'',
       nameGet : '',
       telGet:'',
-      // img : ' ',
+      normal : '',
+      course: '',
+      vip: '',
       data
     },
 
@@ -69,7 +71,22 @@ var vm = new Vue({
           if(this.data.data[i].name == this.name){
             this.nameGet = this.name;
             this.telGet = this.data.data[i].tel;
-            // this.img = this.data.data[i].img;
+            this.normal = this.data.data[i].normal;
+            if(this.normal == false){
+              this.normal = '';
+            }else{
+              this.normal = 'Normal'
+            }
+            this.course = this.data.data[i].course;
+            if(this.course == 'No course.'){
+              this.course = '';
+            }
+            this.vip = this.data.data[i].vip;
+            if(this.vip == false){
+              this.vip = '';
+            }else{
+              this.vip = 'VIP';
+            }
             this.isFound = true;
             // this.name = '';
           }else{
