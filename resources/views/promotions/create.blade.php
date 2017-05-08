@@ -17,9 +17,17 @@
             </div>
         </div>
         <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Start time :</label>
+            <div class="col-sm-10 input-group">
+                <input type="text" class="form-control" aria-describedby="basic-addon2" v-model='startTime'>
+                <span class="input-group-addon" id="basic-addon2">Hours</span>
+            </div>
+        </div>
+        <div class="form-group row">
             <label class="col-sm-2 col-form-label">End time :</label>
-            <div class="col-sm-10">
-                <input class="form-control" type="date" v-model='endTime'>
+            <div class="col-sm-10 input-group">
+                <input type="text" class="form-control" aria-describedby="basic-addon2" v-model='endTime'>
+                <span class="input-group-addon" id="basic-addon2">Hours</span>
             </div>
         </div>
         <button type="submit" class="btn btn-primary" v-on:click='addPromotion'>Submit</button>
@@ -39,7 +47,7 @@ var vm = new Vue({
     },
     methods : {
         addPromotion : function(){
-            if(isNaN(this.percent)){
+            if(isNaN(this.percent) && isNan(this.startTime) && isNan(this.endTime)){
                 alert('Please input is number');
             }else{
                 alert('Add promotion is completed');
