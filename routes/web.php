@@ -25,6 +25,7 @@ Route::get('/course/table', 'CourseController@index');
 Route::get('/course/create', 'CourseController@create');
 
 Route::get('/typeClass/create', 'typeClassController@create');
+Route::get('/typeClass/show', 'typeClassController@index');
 
 Route::get('/promotion/show', 'PromotionController@index');
 Route::get('/promotion/create', 'PromotionController@create');
@@ -32,7 +33,6 @@ Route::get('/promotion/create', 'PromotionController@create');
 Route::get('/voucher/create', 'VoucherController@create');
 
 Route::get('/booking/create', 'BookingController@create');
-
 
 Route::get('/contactUs/index', function(){
   return view('/contactUs/index');

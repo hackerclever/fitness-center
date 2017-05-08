@@ -3,7 +3,6 @@
 @section('content')
 
 <div class="container-fluid" id = 'vue-app-customers'>
-  <br><br><br><br><br><br><br>
   <h1>Search Customer</h1>
 <div class="info">
   <form class="info-form">
@@ -32,14 +31,14 @@
 </div>
 
 <div class="information" v-if = 'isFound'>
-  <br><br><br><br><br><br>
+  <br><br>
   <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-  <!-- <img src="images/ex.jpg" width="150" height="150"> -->
+  <img src= '@{{img}}' width="150" height="150">
   <h1>@{{nameGet}}</h1>
   <p>Type of customer : </p>
-  <p>Tel. : </p>
+  <p>Tel. : @{{telGet}}</p>
 </div>
 </div>
 </div>
@@ -56,6 +55,8 @@ var vm = new Vue({
       isFound : false,
       name:'',
       nameGet : '',
+      telGet:'',
+      img : ' ',
       data
     },
 
@@ -67,14 +68,16 @@ var vm = new Vue({
         for (var i = 0; i < this.data.data.length; i++) {
           if(this.data.data[i].name == this.name){
             this.nameGet = this.name;
+            this.telGet = this.data.data[i].tel;
+            this.img = this.data.data[i].img;
             this.isFound = true;
-            this.name = '';
+            // this.name = '';
           }else{
             a++;
           }
         }
         if(a == this.data.data.length){
-          alert("No Information");
+          $(".alert").alert("No Information");
           this.name = '';
         }
       },

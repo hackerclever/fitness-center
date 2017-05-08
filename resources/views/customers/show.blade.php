@@ -11,18 +11,18 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Status</th>
-                    <th>Amount</th>
+                    <th>Tel.</th>
+                    <th>Type of customer</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="d in data">
                     <td>@{{ d.id }}</td>
                     <td>@{{ d.name }}</td>
+                    <td>@{{ d.tel }}</td>
+                    <!-- <td>@{{ d.type }}</td> -->
                     <td></td>
-                    <td></td>
-                    <!-- <td></td>
-                    <td></td> -->
+                    <!-- <td></td> -->
                 </tr>
             </tbody>
         </table>

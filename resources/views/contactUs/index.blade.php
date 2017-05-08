@@ -18,6 +18,8 @@
             <br>
             <label>10110</label>
             <br>
+            <h5 style="color : red;">TEL   : 02 653 2424</h5>
+            <h5 style="color : red;">EMAIL : FinessCenter@ku.com</h5>
           </div>
           <div class="col-xs-4 col-sm-6">
             <label>Openning times</label>
