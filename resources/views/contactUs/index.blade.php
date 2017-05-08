@@ -1,6 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
+
+<style>
+  label{
+    color:red;
+  }
+</style>
     <div class="jumbotron">
         <div class="container">
             <h1 class="text" style="color:brown;">Contact us</h1>
