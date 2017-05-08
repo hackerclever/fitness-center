@@ -3,7 +3,7 @@
 @section('content')
     <div class="jumbotron">
         <div class="container">
-            <h1 class="text-center">Fitness Center</h1>
+            <h1 class="text-center" style="color:blue;">Fitness Center</h1>
         </div>
     </div>
 <div class="section">
@@ -28,9 +28,5 @@
     <li>Whatever you want from a workout, make DMT part of your training programme for quicker and more effective results.</li>
   </ul>
 </div>
-    <div class="row">
-      <ul>
-        <li><a href="{{ url('/promotion/show') }}">Promotion</a></li>
-      </ul>
-    </div>
+
 @endsection
