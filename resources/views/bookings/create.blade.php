@@ -35,8 +35,8 @@
 <div class="form-group row">
   <label for="example-text-input" class="col-2 col-form-label">Start time : </label>
   <div class="col-10">
-        <input list="browse" class="form-control" name="browser" v-model='startTime'>
-          <datalist id = "browse">
+        <input class="form-control" type="datetime-local" v-model="startTime">
+          <!-- <datalist id = "browse">
               <option value = '' >Start Time</option>
               <option value="2017-5-11-18-00">2017 เดือน 5 วันที่ 11 เวลา 18.00</option>
               <option value="2017-5-15-13-00">2017 เดือน 5 วันที่ 15 เวลา 13.00</option>
@@ -45,7 +45,7 @@
               <option value="2017-6-27-15-00">2017 เดือน 6 วันที่ 27 เวลา 15.00</option>
               <option value="2017-7-15-10-00">2017 เดือน 7 วันที่ 13 เวลา 10.00</option>
               <option value="2017-7-22-13-30">2017 เดือน 7 วันที่ 22 เวลา 13.30</option>
-            </datalist>
+            </datalist> -->
           </div>
           </div>
 
@@ -74,27 +74,24 @@ var vm = new Vue({
 
     methods:
     {
-      // addTrainer : function(){
-      //   // console.log(this.startTime);
-      //
-      //   console.log(this.endTime);
-      //   axios.post('http://fitness-center.dev/api/booking', {
-      //           customer_id: this.idCustomer , user_id: this.isTrainer , startTime : this.startTime
-      //       }).then(function (response) {
-      //           console.log(response.data.data);
-      //           alert(response.data.data);
-      //           vm.idCustomer ='';
-      //           vm.idTrainer ='';
-      //           vm.startTime = '';
-      //       }).catch(function (error) {
-      //           alert('Error (see console log)');
-      //           console.log(error);
-      //       });
-      //       // alert("Booking Trainer is Completed.");
-      //       this.idCustomer = '';
-      //       this.idTrainer = '';
-      //       this.startTime = '';
-      // }
+      addTrainer : function(){
+        axios.post('http://fitness-center.dev/api/booking', {
+                customer_id: this.idCustomer , user_id: this.isTrainer , startTime : this.startTime
+            }).then(function (response) {
+                console.log(response.data.data);
+                alert(response.data.data);
+                vm.idCustomer ='';
+                vm.idTrainer ='';
+                vm.startTime = '';
+            }).catch(function (error) {
+                alert('Error (see console log)');
+                console.log(error);
+            });
+            // alert("Booking Trainer is Completed.");
+            this.idCustomer = '';
+            this.idTrainer = '';
+            this.startTime = '';
+      }
     }
 });
 </script>
