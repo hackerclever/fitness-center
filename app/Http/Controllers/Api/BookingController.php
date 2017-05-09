@@ -16,7 +16,29 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+      $customers = \App\Customer::all();
+      $vipCus = DB::table('v_i_p_customers')
+                    ->where('count', '>', 0)
+                    ->get();
+      $mapVIP = array();
+      foreach ($vipCus as $n) {
+        array_push($mapVIP,$n->customer_id);
+      }
+      $tmpCus = array();
+      foreach ($customers as $c) {
+        $tmp = new \stdClass();
+        $tmp->id = $c->id;
+        $tmp->name = $c->name;
+        $tmp->tel = $c->tel;
+        if(in_array($c->id, $mapVIP)){
+          array_push($tmpCus, $tmp);
+        }
+      }
+
+      return [
+          'success' => true,
+          'data' => $tmpCus
+      ];
     }
 
     /**
