@@ -29,21 +29,17 @@
             </div>
         </div>
         <button type="button" class="btn btn-primary" v-on:click="submit()">Submit</button>
-        <div class="form-group row">
-            @for($i = 0; $i < {{amount}}; $i++)
-              <label class="col-sm-2 col-form-label">Key :</label>
-            @endforeach
-        </div>
     </form>
 </div>
 @endsection
 
 @section('script')
 <script>
+var data = <?php echo $resBody; ?>;
 var vm = new Vue({
     el: '#vue-add-voucher',
     data : {
-        // 'name' : 'Database',
+        data,
         name: '',
         price: 0,
         endTime: '',
@@ -67,7 +63,6 @@ var vm = new Vue({
                     }).catch(function (error) {
                         alert('Error (see console log)');
                         console.log(error);
-                        showKey++;
                     });
                 }
                 else{
