@@ -22,6 +22,7 @@ var vm = new Vue({
     el: '#vue-add-voucher',
     data : {data,
       name: ''},
+
       methods:{
         submit:function(){
           // console.log(this.data.data);
@@ -29,17 +30,6 @@ var vm = new Vue({
           for(var i = 0; i < this.data.data.length; i++){
             if(this.data.data[i].key == this.name){
               alert("Success");
-              axios.put('http://fitness-center.dev/api/vouchers', {
-                  key: this.name, active:0
-              }).then(function (response) {
-                  console.log(response.data.data);
-                  alert(response.data.data);
-                  vm.name = '';
-              }).catch(function (error) {
-                  alert('Error (see console log)');
-                  console.log(error);
-              });
-              alert('Add promotion is completed');
             }else{
               a++;
             }
@@ -47,8 +37,9 @@ var vm = new Vue({
           if(a ==  this.data.data.length){
             alert("No this voucher.");
           }
+}
         }
-      }
+
 });
 </script>
 @endsection

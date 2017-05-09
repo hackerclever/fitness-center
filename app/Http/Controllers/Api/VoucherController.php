@@ -14,7 +14,7 @@ class VoucherController extends Controller
      */
     public function index()
     {
-      $vouchers = \App\Voucher::all()->where('active','=','1');
+      $vouchers = \App\Voucher::all();
       return [
           'success' => true,
           'data' => $vouchers
@@ -99,29 +99,7 @@ class VoucherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = array(
-            // 'name'       => 'required',
-            // 'price'      => 'required|numeric',
-            'key'        => 'required',
-            'active'     => '0'
-        );
-        $validator = Validator::make(Input::all(), $rules);
 
-        // process the login
-        if ($validator->fails()) {
-            return Redirect::to('/voucher/create')
-                ->withErrors($validator);
-        } else {
-            // store
-            $nerd = Nerd::find($id);
-            $nerd->key       = Input::get('key');
-            $nerd->active    = Input::get('active');
-            $nerd->save();
-
-            // redirect
-            Session::flash('message', 'Successfully updated nerd!');
-            return Redirect::to('/voucher/redeem');
-        }
     }
 
     /**
