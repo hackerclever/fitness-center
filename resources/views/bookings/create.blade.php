@@ -75,11 +75,15 @@ var vm = new Vue({
     methods:
     {
       addTrainer : function(){
+        var dateTime = this.startTime.replace("T","-");
+        var dTime = dateTime.replace(":","-");
+        console.log(dTime);
         axios.post('http://fitness-center.dev/api/booking', {
-                customer_id: this.idCustomer , user_id: this.isTrainer , startTime : this.startTime
+                customerID: this.idCustomer , trainerID: this.isTrainer , startTime : dTime
             }).then(function (response) {
                 console.log(response.data.data);
-                alert(response.data.data);
+                // alert(response.data.data);
+                alert("Booking Trainer is Completed."); 
                 vm.idCustomer ='';
                 vm.idTrainer ='';
                 vm.startTime = '';
