@@ -28,18 +28,17 @@
      <div class="col-md-8 col-md-offset-2" >
      <form   id="addForm"  method="post"  >
       <div class="form-group">
-        @foreach($data as $d)
-        {{$d->name}}
-        @endforeach
+        <strong>Name or ID customer.</strong>
         <input list="browser" class="form-control" name="browser" v-model='customerID'>
         <datalist id = "browser">
-          @foreach ($data as $d)
+          @foreach ($dataCustomers as $d)
           <option value= "{{$d->id}}"> {{$d->name}} </option>
           @endforeach
         </datalist>
         </div>
        <br></br>
        <div class="form-group">
+         <strong>Type</strong>
        <select id ="selects" class="form-control" v-model="type">
            <option value="null">--กรุณาเลือกประเภทลูกค้า--</option>
            <option value="normal">Normal</option>
@@ -60,8 +59,9 @@
          <br>
          <select name = "lstcourse" id ="lstcourse" v-model="courseID"  class="form-control">
 
-           <option value="yoka">Yoka</option>
-           <option value="combo-Step">Combo-Step</option>
+           @foreach ($dataCourses as $d)
+           <option value= "{{$d->id}}"> {{$d->name}} </option>
+           @endforeach
 
          </select>
        </div>
