@@ -23,7 +23,7 @@
                 <span class="input-group-addon" id="basic-addon2">Baht</span>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" v-on:click='addPromotion'>Submit</button>
+        <button type="button" class="btn btn-primary" v-on:click='addClass'>Submit</button>
     </form>
 </div>
 @endsection
@@ -39,11 +39,23 @@ var vm = new Vue({
         price: 0
     },
     methods : {
-        addPromotion : function(){
+        addClass : function(){
             if(isNaN(this.price)){
                 alert('Please input is number');
             }else{
-                alert('Add class is completed');
+                axios.post('http://fitness-center.dev/api/typeclass', {
+                    name: this.name, description:this.description, price:this.price
+                }).then(function (response) {
+                    alert('Success');
+                    console.log(response.data.data);
+                    alert(response.data.data);
+                    vm.name = '';
+                    vm.description = 0;
+                    vm.price = '';
+                }).catch(function (error) {
+                    alert('Error (see console log)');
+                    console.log(error);
+                });
             }
             this.name = '';
             this.description = '';

@@ -31,6 +31,7 @@ Route::get('/promotion/show', 'PromotionController@index');
 Route::get('/promotion/create', 'PromotionController@create');
 
 Route::get('/voucher/create', 'VoucherController@create');
+Route::put('/voucher/redeem', 'VoucherController@update');
 
 Route::get('/booking/create', 'BookingController@create');
 
