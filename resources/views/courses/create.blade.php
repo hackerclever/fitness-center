@@ -136,7 +136,7 @@
 
     <button type="button" class="btn btn-primary" v-on:click="submitCourseForm()">OK</button>
     <button type="button" class="btn btn-success" v-on:click="submitTotal()">Submit</button>
-    <button type="button" class="btn btn-danger" v-on:click="clearFormCourse()">Cancel</button>
+    <button type="button" class="btn btn-danger" v-on:click="clearAllFormCourse()">Cancel</button>
 
 </div>
 @endsection
@@ -204,6 +204,12 @@ var vm = new Vue({
       },
 
       clearFormCourse:function(){
+        this.formcourse.day='';
+        this.formcourse.startTime='';
+        this.formcourse.endTime='';
+      },
+
+      clearAllFormCourse:function(){
         this.typeClass='';
         this.trainerName='';
         this.formcourse.day='';
