@@ -22,7 +22,7 @@
 
   </div>
 
-  <div class="aa" v-if = "used == 'true'">
+  <div class="aa" v-if = "used">
 
     <div class="row" id = 'usedCus'  >
      <div class="col-md-8 col-md-offset-2" >
@@ -41,12 +41,12 @@
          <strong>Type</strong>
        <select id ="selects" class="form-control" v-model="type">
            <option value="null">--กรุณาเลือกประเภทลูกค้า--</option>
-           <option value="normal">Normal</option>
-           <option value="course">Course</option>
-           <option value="vip">VIP</option>
+           <option value="Normal">Normal</option>
+           <option value="Course">Course</option>
+           <option value="VIP">VIP</option>
        </select>
        </div>
-       <div id = 'normalSelect'  v-if= "type=='normal'">
+       <div id = 'normalSelect'  v-if= "type=='Normal'">
          <br>
          <select name ="lstmonth" id ="lstmonth" v-model="month"  class="form-control">
            <option value="1">1 เดือน</option>
@@ -55,7 +55,7 @@
 
          </select>
        </div>
-       <div id = 'courseSelect'  v-if ="type=='course'">
+       <div id = 'courseSelect'  v-if ="type=='Course'">
          <br>
          <select name = "lstcourse" id ="lstcourse" v-model="courseID"  class="form-control">
 
@@ -65,7 +65,7 @@
 
          </select>
        </div>
-       <div id = 'vipSelect' v-model="formData.browser" v-if = "type=='vip'">
+       <div id = 'vipSelect' v-model="formData.browser" v-if = "type=='VIP'">
          <br>
          <select id ="lstTrainner" name="lstTrainner"  class="form-control">
            <option value="yoka">Steve Job</option>
@@ -81,7 +81,7 @@
     </div>
   </div>
 
-  <div class="aa"  v-if = "used == 'false'">
+  <div class="aa"  v-if = "!used">
 <br></br>
     <div class="row" id = 'nousedCus' >
       <div class="col-md-8 col-md-offset-2">
@@ -123,9 +123,9 @@
                       <select name ="select1" v-model="type" id ="select1" class="form-control">
                         <label  class="col-md-4 control-label">ประเภทลูกค้า</label>
                           <option value="null">--กรุณาเลือกประเภทลูกค้า--</option>
-                          <option value="normal">Normal</option>
-                          <option value="course">Course</option>
-                          <option value="vip">VIP</option>
+                          <option value="Normal">Normal</option>
+                          <option value="Course">Course</option>
+                          <option value="VIP">VIP</option>
                       </select>
                     </div>
                       <div name ='normalSelect1' id = 'normalSelect1' style="display:none">
@@ -179,7 +179,7 @@
 var vm1 = new Vue({
   el: '#vue-app-test',
   data : {
-    used:'ok',
+    used:false,
     name:"",
     tel:"",
     customerID:'',
@@ -190,10 +190,10 @@ var vm1 = new Vue({
   },
   methods:{
     check:function(){
-      this.used = 'true';
+      this.used = true;
     },
     noUsedcheck:function(){
-      this.used = 'false';
+      this.used = false;
     },
 
     submit: function () {
