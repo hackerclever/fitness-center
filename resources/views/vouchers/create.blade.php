@@ -30,6 +30,9 @@
         </div>
         <button type="button" class="btn btn-primary" v-on:click="submit()">Submit</button>
     </form>
+    <div class="form-group row" v-for="voucher in vouchers">
+      <label class="col-sm-2 col-form-label">Key : @{{voucher.key}}</label>
+    </div>
 </div>
 @endsection
 
@@ -43,7 +46,8 @@ var vm = new Vue({
         name: '',
         price: 0,
         endTime: '',
-        amount: 0
+        amount: 0,
+        vouchers: []
     },
     methods : {
         submit: function () {
@@ -56,7 +60,8 @@ var vm = new Vue({
                         name: this.name, price:this.price,endTime:this.endTime, number:this.amount
                     }).then(function (response) {
                         console.log(response.data.data);
-                        alert(response.data.data);
+                        // alert(response.data.data);
+                        vm.vouchers = response.data.data;
                         vm.name = '';
                         vm.price = 0;
                         vm.endTime = '';
@@ -69,6 +74,7 @@ var vm = new Vue({
                     alert('Please input is more than 0');
                 }
             }
+
         }
     }
 });
