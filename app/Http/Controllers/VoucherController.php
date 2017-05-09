@@ -31,15 +31,23 @@ class VoucherController extends Controller
        ]);
        $resBody = $response->getBody();
        $res = json_decode($resBody);
+
+       $client2 = new \GuzzleHttp\Client();
+       $call2 = "customers";
+       $response2 = $client2->request('GET', "{$this->api}{$call2}", [
+           'form_params' => []
+       ]);
+       $resBody2 = $response2->getBody();
+       $res2 = json_decode($resBody2);
          return view('vouchers.index',[
-             'statusCode' => $response->getStatusCode(),
-             'responseHeader' => $response->getHeader('content-type')[0],
              'success' => $res->success,
              'data' => $res->data,
-             'resBody' => $response->getBody()
+             'resBody' => $response->getBody(),
+             'data2' => $res2->data,
+             'resBody2' => $response2->getBody()
          ]);
      }
-     
+
     public function create()
     {
         $client = new \GuzzleHttp\Client();

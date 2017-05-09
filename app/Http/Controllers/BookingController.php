@@ -26,7 +26,7 @@ class BookingController extends Controller
     public function create()
     {
       $client = new \GuzzleHttp\Client();
-      $call = "customers";
+      $call = "booking";
       $response = $client->request('GET', "{$this->api}{$call}", [
 
           'form_params' => []
@@ -42,22 +42,14 @@ class BookingController extends Controller
       $resBody1 = $response1->getBody();
       $res1 = json_decode($resBody1);
 
-      $client2 = new \GuzzleHttp\Client();
-      $call2 = "courses";
-      $response2 = $client2->request('GET', "{$this->api}{$call2}", [
-          'form_params' => []
-      ]);
-      $resBody2 = $response1->getBody();
-      $res2 = json_decode($resBody2);
-
         return view('bookings.create',[
             'success' => $res->success,
             'data' => $res->data,
             'data1' => $res1->data,
-            'data2' => $res2->data,
+
             'customers' => $response->getBody(),
-            'trainers' => $response1->getBody(),
-            'courses' => $response2->getBody()
+            'trainers' => $response1->getBody()
+
         ]);
     }
 

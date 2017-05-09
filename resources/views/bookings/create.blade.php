@@ -13,7 +13,7 @@
     <input list="browsers" class="form-control" name="browser" v-model='idCustomer'>
     <datalist id = "browsers">
       @foreach ($data as $d)
-      <option value= "{{$d->id}}"> {{$d->name}} </option>
+        <option value= "{{$d->id}} {{$d->name}}"> {{$d->id}} </option>
       @endforeach
     </datalist>
   </div>
@@ -25,7 +25,7 @@
     <input list="browser" class="form-control" name="browser" v-model='idTrainer'>
     <datalist id = "browser">
       @foreach ($data1 as $dd)
-      <option value= "{{$dd->id}}"> {{$dd->name}} </option>
+      <option value= "{{$dd->id}} {{$dd->name}}"> {{$dd->name}} </option>
       @endforeach
     </datalist>
   </div>
@@ -58,7 +58,7 @@
 <script>
 var data = <?php echo $customers; ?>;
 var data1 = <?php echo $trainers; ?>;
-var data2 = <?php echo $courses; ?>;
+
 var vm = new Vue({
     el: '#vue-add-trainer',
     data: {
@@ -68,22 +68,27 @@ var vm = new Vue({
       startTime : '',
       // endTime : '',
       data,
-      data1,
-      data2
+      data1
     },
 
     methods:
     {
       addTrainer : function(){
+        var Customer = this.idCustomer.split(" ");
+        var CustomerID = Customer[0];
+
+        var Trainer = this.idCustomer.split(" ");
+        var TrainerID = Trainer[0];
+
         var dateTime = this.startTime.replace("T","-");
         var dTime = dateTime.replace(":","-");
         console.log(dTime);
         axios.post('http://fitness-center.dev/api/booking', {
-                customerID: this.idCustomer , trainerID: this.isTrainer , startTime : dTime
+                customerID: CustomerID , trainerID: TrainerID , startTime : dTime
             }).then(function (response) {
                 console.log(response.data.data);
                 // alert(response.data.data);
-                alert("Booking Trainer is Completed."); 
+                alert("Booking Trainer is Completed.");
                 vm.idCustomer ='';
                 vm.idTrainer ='';
                 vm.startTime = '';
