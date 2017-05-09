@@ -16,48 +16,73 @@
     margin-top: 30px;
   }
   .box-Mon{
-      background-color: #ffbf00 ;
+      /*background-color: #ffbf00 ;*/
+      border-style: outset;
+      border-left-color: #ffbf00;
+      border-left-width: 10px;
   }
 
   .box-Mon:hover {
-    background-color: yellow;
+    background-color: #E5E4E2;
   }
   .box-Sun{
-      background-color: 	#df2020 ;
+      /*background-color: 	#df2020 ;*/
+      border-style: outset;
+      border-left-color: #df2020;
+      border-left-width: 10px;
   }
   .box-Sun:hover{
-      background-color: 	#FF6347 ;
+      background-color: 	#E5E4E2 ;
   }
 
   .box-Tue{
-    background-color:#ffcccc ;
+    /*background-color:#ffcccc ;*/
+    border-style: outset;
+    border-left-color: #F660AB;
+    border-left-width: 10px;
   }
   .box-Tue:hover{
-    background-color:	#ffb3b3	 ;
+    background-color:	#E5E4E2	 ;
   }
   .box-Wed{
-      background-color: #00fa60 ;
+      /*background-color: #00fa60 ;*/
+      border-style: outset;
+      border-left-color: #4CC417;
+      border-left-width: 10px;
   }
   .box-Wed:hover{
-      background-color:		#05c82c;
+      background-color:		#E5E4E2;
   }
 
   .box-Thu{
-      background-color:#ff6b2e ;
+      /*background-color:#ff6b2e ;*/
+      border-style: outset;
+      border-left-color: #F87217;
+      border-left-width: 10px;
   }
   .box-Thu:hover{
-      background-color: 	#FF4500 ;
+      background-color: 	#E5E4E2 ;
   }
 
   .box-Fri{
-      background-color:	#40E0D0 ;
+      /*background-color:	#40E0D0 ;*/
+      border-style: outset;
+      border-left-color: #6698FF;
+      border-left-width: 10px;
   }
   .box-Fri:hover{
-      background-color:	  #00c4b9 ;
+      background-color:	  #E5E4E2 ;
   }
 
   .box-Sat{
-      background-color: #EE82EE;
+      /*background-color: #EE82EE;*/
+      border-style: outset;
+      border-left-color: #6A287E;
+      border-left-width: 10px;
+
+  }
+  .box-Sat:hover{
+      background-color:	  #E5E4E2 ;
   }
 </style>
 <div class="container" id='vue-app-courses'>
