@@ -70,7 +70,7 @@
            </li>
            @if (Auth::user()->typeUser->role=='Admin')
            <li class="nav-item">
-               <a class="nav-link" href="{{ url('/register') }}">Register</a>
+               <a class="nav-link" href="{{ url('/register') }}">Add Employee</a>
            </li>
            @endif
 
