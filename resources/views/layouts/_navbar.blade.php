@@ -33,6 +33,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/voucher/create') }}">Voucher</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/voucher/redeem') }}">Redeem vourcher</a>
+            </li>
             @else
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/promotion/show') }}">Promotion</a>

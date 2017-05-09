@@ -22,6 +22,24 @@ class VoucherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function index()
+     {
+       $client = new \GuzzleHttp\Client();
+       $call = "vouchers";
+       $response = $client->request('GET', "{$this->api}{$call}", [
+           'form_params' => []
+       ]);
+       $resBody = $response->getBody();
+       $res = json_decode($resBody);
+         return view('vouchers.index',[
+             'statusCode' => $response->getStatusCode(),
+             'responseHeader' => $response->getHeader('content-type')[0],
+             'success' => $res->success,
+             'data' => $res->data,
+             'resBody' => $response->getBody()
+         ]);
+     }
+     
     public function create()
     {
         $client = new \GuzzleHttp\Client();

@@ -72,11 +72,12 @@
   <div class="card p-3">
     <img class="card-img-top img-fluid" src="/images/dance.jpg" alt="Card image cap">
     <blockquote class="card-block card-blockquote">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <h4 class="card-title">Movements can just use your body weight or be loaded for greater benefit.</h4>
+      <p>Dynamic movement training is important to help you maintain a healthy body and healthy mind.</p>
       <footer>
-        <small class="text-muted">
+        <!-- <small class="text-muted">
           Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
+        </small> -->
       </footer>
     </blockquote>
   </div>
@@ -90,20 +91,16 @@
   </div>
   <div class="card card-inverse card-primary p-3 text-center">
     <blockquote class="card-blockquote">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-      <footer>
-        <small>
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
+      <p>Our dedicated Freestyle areas and fitness experts can help you discover new training techniques and exercises that offer a dynamic and efficient full-body workout.</p>
+
     </blockquote>
   </div>
   <div class="card text-center">
     <img class="card-img-top img-fluid" src="/images/group.jpg" alt="Card image cap">
     <div class="card-block">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h4 class="card-title">Body</h4>
+      <p class="card-text">Involve your whole body by challenging your cardiovascular, muscular and neural systems at the same time.</p>
+
     </div>
   </div>
   <div class="card">
@@ -111,20 +108,20 @@
   </div>
   <div class="card p-3 text-right">
     <blockquote class="card-blockquote">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <p>The more dynamically you move, the better you’ll feel and perform.</p>
       <footer>
-        <small class="text-muted">
+        <!-- <small class="text-muted">
           Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
+        </small> -->
       </footer>
     </blockquote>
   </div>
   <div class="card">
     <img class="card-img-top img-fluid" src="/images/yoga.jpg" alt="Card image cap">
     <div class="card-block">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h4 class="card-title">FREESTYLE GROUP TRAINING</h4>
+      <p class="card-text">Find motivation from training with others for an efficient and progressive workout. Offering interactive and energetic sessions, Freestyle Group Training incorporates the latest equipment and trained fitness staff. These classes are a great way to work the whole body and improve overall fitness.</p>
+
     </div>
   </div>
 </div>

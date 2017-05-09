@@ -15,9 +15,9 @@
 <div class="container" id="vue-app-test">
 
       {{ csrf_field() }}
-      <button type="button" v-on:click = 'check()' class="btn btn-info btn-lg"  id="used" value="used">เคยเป็นสมาชิก</button>
-      <button type="button" v-on:click = 'noUsedcheck()' class="btn btn-info btn-lg"  value="noused" name="noused">ไม่เคยเป็นสมาชิก</button>
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" >เทรนเนอร์</button>
+      <button type="button" v-on:click = 'check()' class="btn btn-info btn-lg"  id="used" value="used">Member</button>
+      <button type="button" v-on:click = 'noUsedcheck()' class="btn btn-info btn-lg"  value="noused" name="noused">Guest</button>
+      <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" >เทรนเนอร์</button> -->
   <div class="aa" v-if="used == 'ok'">
 
   </div>
@@ -40,7 +40,7 @@
        <div class="form-group">
          <strong>Type</strong>
        <select id ="selects" class="form-control" v-model="type">
-           <option value="null">--กรุณาเลือกประเภทลูกค้า--</option>
+           <option value="null">--Select type--</option>
            <option value="Normal">Normal</option>
            <option value="Course">Course</option>
            <option value="VIP">VIP</option>
@@ -49,9 +49,9 @@
        <div id = 'normalSelect'  v-if= "type=='Normal'">
          <br>
          <select name ="lstmonth" id ="lstmonth" v-model="month"  class="form-control">
-           <option value="1">1 เดือน</option>
-           <option value="2">4 เดือน</option>
-           <option value="3">12 เดือน</option>
+           <option value="1">1 month</option>
+           <option value="2">4 months</option>
+           <option value="3">12 months</option>
 
          </select>
        </div>
@@ -73,7 +73,7 @@
 
          </select>
        </div>
-       <button v-on:click="submit()" class="btn btn-default" type="button">บันทึกข้อมูล</button>
+       <button v-on:click="submit()" class="btn btn-default" type="button">Save</button>
 
        </form>
 
@@ -119,10 +119,10 @@
 
 
                       <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                        <label for="type" class="col-md-4 control-label">ประเภทลูกค้า</label>
+                        <label for="type" class="col-md-4 control-label">Type of customer</label>
                       <select name ="select1" v-model="type" id ="select1" class="form-control">
-                        <label  class="col-md-4 control-label">ประเภทลูกค้า</label>
-                          <option value="null">--กรุณาเลือกประเภทลูกค้า--</option>
+                        <label  class="col-md-4 control-label">Type of customer</label>
+                          <option value="null">--Select type of customer--</option>
                           <option value="Normal">Normal</option>
                           <option value="Course">Course</option>
                           <option value="VIP">VIP</option>
@@ -131,9 +131,9 @@
                       <div name ='normalSelect1' id = 'normalSelect1' style="display:none">
                         <br>
                         <select id ="lstmonth1" v-model="month"  class="form-control">
-                          <option value="1">1 เดือน</option>
-                          <option value="2">4 เดือน</option>
-                          <option value="3">12 เดือน</option>
+                          <option value="1">1 month</option>
+                          <option value="2">4 months</option>
+                          <option value="3">12 months</option>
 
                         </select>
                       </div>
@@ -150,14 +150,14 @@
                         <br>
                         <select id ="lstTrainner1" v-model="time"  class="form-control">
 
-                          <option value="10">10 ครั้ง</option>
-                          <option value="20">20 ครั้ง</option>
-                          <option value="40">40 ครั้ง</option>
+                          <option value="10">10 times</option>
+                          <option value="20">20 times</option>
+                          <option value="40">40 times</option>
 
 
                         </select>
                       </div>
-                      <button v-on:click="submit()" class="btn btn-default" type="button">บันทึกข้อมูล</button>
+                      <button v-on:click="submit()" class="btn btn-default" type="button">Save</button>
                   </form>
 
       </div>
